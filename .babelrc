@@ -1,0 +1,17 @@
+{
+  "presets": [
+    ["env", {
+      "modules": false
+    }],
+    "react",
+    "stage-2"
+  ],
+  "plugins": [
+    "react-hot-loader/babel",
+    ["react-intl-auto", {
+      "removePrefix": true,
+      "includeExportName": true
+    }],
+    "react-intl-id-hash"
+  ]
+}

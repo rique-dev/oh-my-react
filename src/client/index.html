@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>react-starter-boilerplate-hmr</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <div id="page-loader">
+    Loading...
+  </div>
+  <script>
+    var pageLoader = document.querySelector("#page-loader");
+    document.addEventListener("DOMContentLoaded", function (event) {
+      fadeOut(pageLoader);
+    });
+    window.onload = function () {
+      // scripts
+    };
+
+    function fadeOut(el) {
+      el.style.opacity = 1;
+      (function fade() {
+        if ((el.style.opacity -= .1) < 0) {
+          el.style.display = "none";
+        } else {
+          requestAnimationFrame(fade);
+        }
+      })();
+    }
+
+  </script>
+</body>
+
+</html>

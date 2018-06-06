@@ -1,0 +1,17 @@
+@import 'styles/variables';
+
+.some-class {
+  background-color: red;
+
+  &:hover {
+    color: red;
+  }
+
+  &--action {
+    background: rgb(219, 151, 151);
+  }
+}
+
+.test {
+  cursor: pointer;
+}
