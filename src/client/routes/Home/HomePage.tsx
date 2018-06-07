@@ -22,7 +22,7 @@ interface HomeProps extends CounterProps {
 @connectCounter()
 export default class HomePage extends Page<HomeParams, HomeProps> {
   render() {
-    const { count, isPrime, increment, decrement, title, match } = this.props
+    const { count, isPrime, incrementComplexy, increment, decrement, title, match } = this.props
     return (
       <div className={styleHover}>
         {JSON.stringify(isPrime)}
@@ -31,6 +31,7 @@ export default class HomePage extends Page<HomeParams, HomeProps> {
         <br />
         Current counter value: {count}
         <div><button onClick={e => increment({ count: 5 })}>Increment</button></div>
+        <div><button onClick={e => incrementComplexy({ count: 1 })}>incrementComplexy</button></div>
         <div><button onClick={e => decrement({ count: 10 })}>Decrement</button></div>
         <h1 className={s.someClassAction}>Home {PORT.DEVELOPMENT}</h1>
         <h2 className={s.someClassAction}>
