@@ -17,6 +17,10 @@
     "arrow-return-shorthand": [
       false
     ],
+    "max-file-line-count": [
+      true,
+      300
+    ],
     "comment-format": [
       true,
       "check-space"
@@ -111,7 +115,6 @@
       true,
       "ban-keywords",
       "check-format",
-      "allow-pascal-case",
       "allow-leading-underscore"
     ],
     "jsx-no-lambda": false

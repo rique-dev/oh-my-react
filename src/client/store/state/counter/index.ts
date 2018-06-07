@@ -1,41 +1,41 @@
 
-import { connectState } from '@lib'
-import { Action, ActionCreator, Reducer } from 'redux'
+import { connectState, Action, ActionCreator, Reducer } from '@lib'
+import { RootState } from '@State'
 
 // types
-enum typeAction {
+enum type {
   INCREMENT = 'counter/INCREMENT',
   DECREMENT = 'counter/DECREMENT',
 }
 
-type INCREMENT = typeAction.INCREMENT
-type DECREMENT = typeAction.DECREMENT
+type INCREMENT = type.INCREMENT
+type DECREMENT = type.DECREMENT
 
-export type CounterState = {
-  count: number;
+export type State = {
+  count?: number;
 }
-interface IncrementAction extends Action<INCREMENT> {
-  payload: CounterState
-}
-
-interface DecrementAction extends Action<DECREMENT> {
-  payload: CounterState
+interface Increment extends Action<INCREMENT> {
+  payload: State
 }
 
-type CounterActions = IncrementAction | DecrementAction
+interface Decrement extends Action<DECREMENT> {
+  payload: State
+}
+
+type Actions = Increment | Decrement
 
 // Reducer
-const initialState: CounterState = {
+const initialState: State = {
   count: 0,
 }
 
-const reducer: Reducer<CounterState, CounterActions> = (state = initialState, action) => {
+const reducer: Reducer<State, Actions> = (state = initialState, action) => {
   switch (action.type) {
-    case typeAction.INCREMENT:
+    case type.INCREMENT:
       return {
         count: state.count + action.payload.count,
       }
-    case typeAction.DECREMENT:
+    case type.DECREMENT:
       return {
         count: state.count - action.payload.count,
       }
@@ -47,35 +47,56 @@ const reducer: Reducer<CounterState, CounterActions> = (state = initialState, ac
 export default reducer
 
 // Actions
-export interface CounterDispatch {
-  increment: (payload: CounterState) => void
-  decrement: (payload: CounterState) => void
+export interface Dispatch {
+  increment?: (payload: State) => void
+  decrement?: (payload: State) => void
 }
 
-export const increment = (payload: CounterState): IncrementAction => ({
+export const increment = (payload: State): Increment => ({
   payload,
-  type: typeAction.INCREMENT,
+  type: type.INCREMENT,
 })
 
-export const decrement = (payload: CounterState): DecrementAction => ({
+export const decrement = (payload: State): Decrement => ({
   payload,
-  type: typeAction.DECREMENT,
+  type: type.DECREMENT,
 })
 
+// selectors
+interface Selectors {
+  isPrime: number
+}
+
+export const isPrime = (state: State) => state.count % 2 === 0
 // operations
 
+const operations = {
+  decrement,
+  increment: (payload: State) => {
+    return (dispatch) => {
+      dispatch(increment(payload))
+      dispatch(increment({ count: 2 }))
+    }
+  },
+}
+
 // decorator
-export type CounterProps = CounterState & CounterDispatch
+export type Props = State & Dispatch & Selectors
 
 /**
  * Conecta os dispatchs e state
  */
 export const connectCounter = () => {
-  return connectState<CounterState, CounterDispatch>(
-    state => state.counter,
+  const mapStateToProps = (state: RootState) => {
+    return {
+      ...state.counter,
+      isPrime: isPrime(state.counter),
+    }
+  }
+  return connectState<State, Dispatch>(
+    mapStateToProps,
     {
-      increment,
-      decrement,
+      ...operations,
     },
   )
 }

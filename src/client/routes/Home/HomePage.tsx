@@ -9,24 +9,26 @@ import { PORT } from '@constants'
 import messages from './HomeMessages'
 import { Page } from '@lib'
 import { HomeParams } from './'
-import { connectCounter, CounterProps } from '@State/counter'
+import { connectCounter, Props as CounterProps } from '@State/counter'
 
 const styleHover = cx({
   [s.someClass]: false,
   [s.test]: false,
 })
 
-interface Props extends CounterProps {
+interface HomeProps extends CounterProps {
   title: string
 }
 @connectCounter()
-export default class HomePage extends Page<HomeParams, Props> {
+export default class HomePage extends Page<HomeParams, HomeProps> {
   render() {
-    const { count, increment, decrement, title, match } = this.props
+    const { count, isPrime, increment, decrement, title, match } = this.props
     return (
       <div className={styleHover}>
-        {JSON.stringify(match)}
-        <br/>
+        {JSON.stringify(isPrime)}
+        <br />
+        é primo? {isPrime}
+        <br />
         Current counter value: {count}
         <div><button onClick={e => increment({ count: 5 })}>Increment</button></div>
         <div><button onClick={e => decrement({ count: 10 })}>Decrement</button></div>
