@@ -1,5 +1,4 @@
-import * as React from 'react'
-import { PageProps } from '@lib'
+import { PageProps, React } from '@lib'
 import { Params } from '.'
 
 export default (props: PageProps<Params>) => (

@@ -1,8 +1,8 @@
-import importedComponent from 'react-imported-component'
+import { reactImportedComponent } from '@lib'
 import { Loading } from '@components'
 import Radar from '@Login/Radar'
 
-const component = importedComponent(() => import('./LoginPage'), {
+const component = reactImportedComponent(() => import('./LoginPage'), {
   LoadingComponent: Loading,
 })
 

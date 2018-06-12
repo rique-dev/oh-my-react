@@ -66,6 +66,23 @@ A estrutura do projeto foi iniciada a partir de várias pesquisas, referências 
 - [Fetch Mock](https://github.com/wheresrhys/fetch-mock) for testing async actions.
 - [Redux Mock Store](https://github.com/arnaudbenard/redux-mock-store) for creating mock stores.
 
+
+## Workflow
+
+#### Component
+
+Componente não recebe state, lógica, tratamento de erro, ele é unicamente um comportamento da view encapsulado. Todo o data deve ser passado via props.
+
+#### Container
+
+É um conjunto de components encapsulado para executar determinado comportamento na view. Todas os state, lógica, tratamento de erro, e etc, são referentes a ele próprio. O que não depende dele.
+
+#### Page
+
+- mapStateToProps: Mapeaia todas as operações (Dispatchs) do modulo
+
+- mapDispatchToProps: Mapeia o state e selectors do modulo
+
 ## Directory Structure
 ```bash
 .
@@ -91,7 +108,6 @@ A estrutura do projeto foi iniciada a partir de várias pesquisas, referências 
 ├── typings                     # Type definitions installed with typings.
 ├── .gitignore                  # Tells git which files to ignore.
 ├── .stylelintrc                # Configures stylelint.
-├── Dockerfile                  # Dockerfile.
 ├── favicon.ico                 # Favicon.
 ├── package.json                # Package configuration.
 ├── README.md                   # This file

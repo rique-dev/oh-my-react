@@ -1,11 +1,6 @@
-import { State, type, Increment, Decrement } from './types'
+import { State as Payload, Type } from './types'
+import { createAction } from '@lib'
 
-export const increment = (payload: State): Increment => ({
-  payload,
-  type: type.INCREMENT,
-})
+export const increment = createAction<Payload>(Type.INCREMENT)
 
-export const decrement = (payload: State): Decrement => ({
-  payload,
-  type: type.DECREMENT,
-})
+export const decrement = createAction<Payload>(Type.DECREMENT)

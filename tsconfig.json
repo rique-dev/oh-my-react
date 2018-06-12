@@ -3,6 +3,7 @@
     "outDir": "./dist/",
     "sourceMap": true,
     "noImplicitAny": false,
+    "strictNullChecks": false,
     "module": "esnext",
     "moduleResolution": "node",
     "strict": true,
@@ -15,7 +16,6 @@
     "jsx": "react",
     "allowJs": true,
     "baseUrl": ".",
-    "strictNullChecks": false,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "typeRoots": [

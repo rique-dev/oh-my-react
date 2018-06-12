@@ -4,10 +4,15 @@ import { RootState } from '@State'
 import * as selectors from './selectors'
 import operations from './operations'
 import { State, Dispatch, Props } from './types'
-import { reducer } from './reducers'
+
+export { default } from './reducers'
+export {
+  State,
+  Props,
+}
 
 /**
- * Conecta os dispatchs e state
+ * Conecta no component operations e state
  */
 export const connectCounter = () => {
   const mapStateToProps = (state: RootState) => {
@@ -17,16 +22,12 @@ export const connectCounter = () => {
     }
   }
 
+  const mapDispatchToProps = {
+    ...operations,
+  }
+
   return connectState<State, Dispatch>(
     mapStateToProps,
-    {
-      ...operations,
-    },
+    mapDispatchToProps,
   )
-}
-
-export default reducer
-export {
-  State,
-  Props,
 }

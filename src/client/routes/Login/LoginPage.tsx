@@ -1,10 +1,7 @@
-import * as React from 'react'
-import { Link } from 'react-router-dom'
-
+import { React, Link, renderRoutes } from '@lib'
 import Radar from '@Login/Radar'
 
 import s from './LoginStyle.scss'
-import { renderRoutes } from 'react-router-config'
 
 export default ({ route }) => (
   <div>

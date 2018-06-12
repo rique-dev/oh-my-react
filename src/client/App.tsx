@@ -1,27 +1,30 @@
-import * as React from 'react'
-import { Provider as ReduxProvider } from 'react-redux'
-import { Switch, BrowserRouter as Router, Route, HashRouter } from 'react-router-dom'
-import { ConnectedRouter } from 'react-router-redux'
-import { createBrowserHistory } from 'history'
-import routes from './routes'
-import { IntlProvider } from 'react-intl'
-import { translationMessages } from '@translations'
-import { renderRoutes } from 'react-router-config'
-import configureStore from './store'
-import { DEFAULT_LOCALE } from '@constants'
+import {
+  React,
+  Switch,
+  BrowserRouter as Router,
+  renderRoutes,
+  ReduxProvider,
+  IntlProvider,
+  ConnectedRouter,
+  History,
+} from '@lib'
 
+import routes from './routes'
+import configureStore from './store'
+import { translationMessages } from '@translations'
+import { DEFAULT_LOCALE } from '@constants'
 import { logo } from '@images'
 
-const history = createBrowserHistory()
+const browserHistory = History.createBrowserHistory()
 
 declare global { interface Window { REDUX_INITIAL_DATA: any } }
-const reduxStore = configureStore(history, window.REDUX_INITIAL_DATA)
+const reduxStore = configureStore(browserHistory, window.REDUX_INITIAL_DATA)
 
 export default () => {
   return (
     <ReduxProvider store={reduxStore}>
       <IntlProvider locale={DEFAULT_LOCALE} key={DEFAULT_LOCALE} messages={translationMessages[DEFAULT_LOCALE]}>
-        <ConnectedRouter history={history}>
+        <ConnectedRouter history={browserHistory}>
           <Router>
             <div>
               <div>

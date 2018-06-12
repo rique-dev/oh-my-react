@@ -1,5 +1,4 @@
-import * as React from 'react'
-import { Link } from 'react-router-dom'
+import { React, Link } from '@lib'
 
 import Home from '@Home'
 

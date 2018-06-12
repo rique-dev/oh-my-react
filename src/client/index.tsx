@@ -1,7 +1,4 @@
-import * as React from 'react'
-import { render } from 'react-dom'
-import { AppContainer } from 'react-hot-loader'
-import deepForceUpdate from 'react-deep-force-update'
+import { React, render, AppContainer, /* reactDeepForceUpdate */ } from '@lib'
 import App from './App'
 
 const rootEl = document.getElementById('root')
@@ -14,10 +11,9 @@ const renderReactApp = () => render(
 )
 renderReactApp()
 
-// Hot Module Replacement API
 if (module.hot) {
   module.hot.accept('./App', () => {
-    deepForceUpdate(renderReactApp())
-    // renderReactApp()
+    // reactDeepForceUpdate(renderReactApp())
+    renderReactApp()
   })
 }

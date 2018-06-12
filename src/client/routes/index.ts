@@ -1,4 +1,4 @@
-import { RouteConfig } from 'react-router-config'
+import { RouteConfig } from '@lib'
 import Home from './Home'
 import NotFound from './NotFound'
 import Login from './Login'
