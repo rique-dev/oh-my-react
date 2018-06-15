@@ -1,5 +1,4 @@
-const executeIfFunction = (f: () => void) =>
-  typeof f === 'function' ? f() : f
+const executeIfFunction = (f: () => void) => (typeof f === 'function' ? f() : f)
 
 const switchCaseKey = (cases: object) => (defaultCase: any) => key =>
   cases.hasOwnProperty(key) ? cases[key] : defaultCase

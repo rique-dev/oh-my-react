@@ -1,4 +1,4 @@
-import { React, render, AppContainer, /* reactDeepForceUpdate */ } from '@lib'
+import { React, render, AppContainer /* reactDeepForceUpdate */ } from '@lib'
 import App from './App'
 
 const rootEl = document.getElementById('root')
