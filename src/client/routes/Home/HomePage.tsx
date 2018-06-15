@@ -1,12 +1,4 @@
-import {
-  React,
-  Page,
-  FormattedMessage,
-  Link,
-  classNames,
-  moment,
-  Helmet,
-} from '@lib'
+import { React, Page, FormattedMessage, Link, classNames, moment, Helmet } from '@lib'
 
 import Login from '@Login'
 import { PORT } from '@constants'
@@ -27,15 +19,7 @@ interface HomeProps extends CounterProps {
 @connectCounter()
 export default class HomePage extends Page<HomeParams, HomeProps> {
   render() {
-    const {
-      count,
-      isPrime,
-      incrementComplexy,
-      increment,
-      decrement,
-      match,
-      list,
-    } = this.props
+    const { count, isPrime, incrementComplexy, increment, decrement, match, list } = this.props
 
     return (
       <div className={styleHover}>
@@ -50,10 +34,22 @@ export default class HomePage extends Page<HomeParams, HomeProps> {
         list: {JSON.stringify(list)}
         <br />
         Current counter value: {count}
-        <div><button onClick={e => list.pop()}>list pop</button></div>
-        <div><button onClick={e => increment({ count: 1 })}>Increment</button></div>
-        <div><button onClick={e => incrementComplexy({ count: 1 })}>incrementComplexy</button></div>
-        <div><button onClick={e => decrement({ count: 10 })}>Decrement</button></div>
+        <div>
+          <button onClick={e => list.pop()}>list pop</button>
+        </div>
+        <div>
+          <button onClick={e => increment({ count: 1 })}>Increment</button>
+        </div>
+        <div>
+          <button
+            onClick={(e: React.MouseEvent<HTMLButtonElement>) => incrementComplexy({ count: 1 })}
+          >
+            incrementComplexy
+          </button>
+        </div>
+        <div>
+          <button onClick={e => decrement({ count: 10 })}>Decrement</button>
+        </div>
         <h1 className={style.someClassAction}>Home {PORT.DEVELOPMENT}</h1>
         <h2 className={style.someClassAction}>
           <div className={style.someClassAction}>{moment(new Date()).format()}</div>

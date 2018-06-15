@@ -33,7 +33,7 @@
     "interface-name": false,
     "max-line-length": [
       true,
-      120
+      100
     ],
     "member-access": false,
     "member-ordering": [

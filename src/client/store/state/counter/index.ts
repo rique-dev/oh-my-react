@@ -1,4 +1,3 @@
-
 import { connectState } from '@lib'
 import { RootState } from '@State'
 import * as selectors from './selectors'
@@ -6,10 +5,7 @@ import operations from './operations'
 import { State, Dispatch, Props } from './types'
 
 export { default } from './reducers'
-export {
-  State,
-  Props,
-}
+export { State, Props }
 
 /**
  * Conecta no component operations e state
@@ -26,8 +22,5 @@ export const connectCounter = () => {
     ...operations,
   }
 
-  return connectState<State, Dispatch>(
-    mapStateToProps,
-    mapDispatchToProps,
-  )
+  return connectState<State, Dispatch>(mapStateToProps, mapDispatchToProps)
 }
