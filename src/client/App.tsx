@@ -17,8 +17,11 @@ import { logo } from '@images'
 
 const browserHistory = History.createBrowserHistory()
 
-declare global { interface Window { REDUX_INITIAL_DATA: any } }
-const reduxStore = configureStore(browserHistory, window.REDUX_INITIAL_DATA)
+declare global { interface Window { __REDUX_DEVTOOLS_EXTENSION__: any } }
+const reduxStore = configureStore(
+  browserHistory,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+)
 
 export default () => {
   return (

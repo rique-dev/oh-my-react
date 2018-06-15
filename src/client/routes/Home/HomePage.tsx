@@ -1,8 +1,16 @@
-import { React, Page, FormattedMessage, Link, classNames, moment } from '@lib'
+import {
+  React,
+  Page,
+  FormattedMessage,
+  Link,
+  classNames,
+  moment,
+  Helmet,
+} from '@lib'
 
 import Login from '@Login'
 import { PORT } from '@constants'
-import { connectCounter, Props as CounterProps, State as CounterState } from '@State/counter'
+import { connectCounter, Props as CounterProps } from '@State/counter'
 
 import style from './HomeStyle.scss'
 import messages from './HomeMessages'
@@ -13,15 +21,11 @@ const styleHover = classNames({
   [style.test]: false,
 })
 
-interface HomeState extends CounterState {
-
-}
-
 interface HomeProps extends CounterProps {
   title: string
 }
 @connectCounter()
-export default class HomePage extends Page<HomeParams, HomeProps, CounterState> {
+export default class HomePage extends Page<HomeParams, HomeProps> {
   render() {
     const {
       count,
@@ -29,13 +33,16 @@ export default class HomePage extends Page<HomeParams, HomeProps, CounterState> 
       incrementComplexy,
       increment,
       decrement,
-      title,
       match,
       list,
     } = this.props
 
     return (
       <div className={styleHover}>
+        <Helmet>
+          <title>Home</title>
+          <meta name="description" content="Home application" />
+        </Helmet>
         {JSON.stringify(match)}
         <br />
         é primo? {JSON.stringify(isPrime)}
@@ -51,7 +58,7 @@ export default class HomePage extends Page<HomeParams, HomeProps, CounterState> 
         <h2 className={style.someClassAction}>
           <div className={style.someClassAction}>{moment(new Date()).format()}</div>
         </h2>
-        <FormattedMessage {...messages.hello} />
+        <FormattedMessage {...messages.helloWorld} />
         <li>
           <Link to={Login.path}>Login</Link>
         </li>

@@ -1,4 +1,5 @@
-import { React, RouteConfigComponentProps, match } from '@lib'
+import { React } from '.'
+import { RouteConfigComponentProps } from '@lib'
 
 export interface PageProps<Params> extends RouteConfigComponentProps<Params> { }
 

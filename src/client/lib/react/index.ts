@@ -1,3 +1,10 @@
-export { default as React } from 'react'
+import * as React from 'react'
+
+const Fragment = React.Fragment
+
+export {
+  React,
+  Fragment,
+}
 
 export * from './Page'
