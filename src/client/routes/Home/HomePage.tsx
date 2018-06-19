@@ -34,7 +34,7 @@ export default class HomePage extends Page<HomeParams, HomeProps> {
       decrement,
       match,
       list,
-    } = this.props;
+    } = this.props
 
     return (
       <div className={styleHover}>
