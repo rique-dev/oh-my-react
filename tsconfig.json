@@ -18,89 +18,37 @@
     "baseUrl": ".",
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
-    "typeRoots": [
-      "node_modules/@types",
-      "types/*"
-    ],
-    "lib": [
-      "es5",
-      "es6",
-      "dom",
-      "scripthost",
-      "es2015.iterable"
-    ],
+    "typeRoots": ["node_modules/@types", "types/*"],
+    "lib": ["es5", "es6", "dom", "scripthost", "es2015.iterable"],
     "paths": {
-      "@/*": [
-        "src/client/*"
-      ],
-      "@State/*": [
-        "src/client/store/state/*"
-      ],
-      "@State": [
-        "src/client/store/state"
-      ],
-      "@components/*": [
-        "src/client/components/*"
-      ],
-      "@components": [
-        "src/client/components"
-      ],
-      "@containers/*": [
-        "src/client/containers/*"
-      ],
-      "@containers": [
-        "src/client/containers"
-      ],
-      "@images": [
-        "src/client/images"
-      ],
-      "@lib/*": [
-        "src/client/lib/*"
-      ],
-      "@lib": [
-        "src/client/lib"
-      ],
-      "@Home/*": [
-        "src/client/routes/Home/*"
-      ],
-      "@Home": [
-        "src/client/routes/Home"
-      ],
-      "@Login/*": [
-        "src/client/routes/Login/*"
-      ],
-      "@Login": [
-        "src/client/routes/Login"
-      ],
-      "@redux": [
-        "src/client/redux"
-      ],
-      "@styles/*": [
-        "src/client/styles/*"
-      ],
-      "@constants/*": [
-        "src/client/constants/*"
-      ],
-      "@constants": [
-        "src/client/constants"
-      ],
-      "@translations": [
-        "src/client/translations"
-      ],
-      "@vendors": [
-        "src/client/vendors"
-      ],
-      "*": [
-        "types/*"
-      ]
+      "@/*": ["src/client/*"],
+      "@State/*": ["src/client/store/state/*"],
+      "@State": ["src/client/store/state"],
+      "@components/*": ["src/client/components/*"],
+      "@components": ["src/client/components"],
+      "@containers/*": ["src/client/containers/*"],
+      "@containers": ["src/client/containers"],
+      "@images": ["src/client/images"],
+      "@lib/*": ["src/client/lib/*"],
+      "@lib": ["src/client/lib"],
+      "@Home/*": ["src/client/routes/Home/*"],
+      "@Home": ["src/client/routes/Home"],
+      "@Login/*": ["src/client/routes/Login/*"],
+      "@Login": ["src/client/routes/Login"],
+      "@redux": ["src/client/redux"],
+      "@styles/*": ["src/client/styles/*"],
+      "@constants/*": ["src/client/constants/*"],
+      "@constants": ["src/client/constants"],
+      "@translations": ["src/client/translations"],
+      "@vendors": ["src/client/vendors"],
+      "*": ["types/*"]
     }
   },
-  "include": [
-    "./src/**/*"
-  ],
+  "include": ["./src/**/*"],
   "exclude": [
     "./node_modules/react-imported-component/**/*",
     "node_modules",
+    "**/node_modules/**/*",
     "src/**/*.spec.*",
     "build",
     "scripts",

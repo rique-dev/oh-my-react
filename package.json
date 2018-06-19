@@ -6,7 +6,7 @@
   "scripts": {
     "clean:dist": "rm -f -r -d dist",
     "lint": "npm run lint:ts && npm run lint:sass",
-    "lint:ts": "tslint './src/**/*.ts*' --format stylish",
+    "lint:ts": "tslint \"src/**/*.ts*\"",
     "lint:sass": "stylelint ./src/**/*.scss --syntax scss",
     "i18n:extract": "extract-messages -l=pt,en -o src/client/translations/extracted -d pt --flat false 'src/client/**/*Messages.ts'",
     "i18n:watch": "node scripts/watchI18nMessages.js",
@@ -23,8 +23,8 @@
     "doc:build": "build-storybook",
     "precommit": "lint-staged",
     "format": "npm run format:scss && npm run format:ts",
-    "format:scss": "prettier-stylelint --write",
-    "format:ts": "prettier-tslint fix \"./**/*.{tsx,ts}\""
+    "format:scss": "prettier-stylelint --write --quiet",
+    "format:ts": "prettier-tslint fix \"src/**/*.{tsx,ts}\""
   },
   "prettier": {
     "arrowParens": "avoid",
@@ -39,7 +39,7 @@
   },
   "lint-staged": {
     "{src}/**/*.ts": [
-      "prettier --write"
+      "prettier-tslint check \"src/**/*.{tsx,ts}\""
     ]
   },
   "jest": {
@@ -178,6 +178,7 @@
     "stylelint-webpack-plugin": "^0.10.4",
     "ts-jest": "^22.4.6",
     "ts-loader": "~3.3.0",
+    "ts-node": "^6.1.1",
     "tslint": "^5.9.1",
     "tslint-clean-code": "^0.2.7",
     "tslint-config-airbnb": "^5.9.2",

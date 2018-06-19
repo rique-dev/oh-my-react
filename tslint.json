@@ -1,11 +1,9 @@
 {
-  "extends": [
-    "tslint:all",
-    "tslint-config-airbnb",
-    "tslint-clean-code"
-  ],
+  "extends": ["tslint:all", "tslint-config-airbnb", "tslint-clean-code"],
   "linterOptions": {
     "exclude": [
+      "node_modules/**/*",
+      "**/node_modules/**/*",
       "src/client/*index.tsx",
       "src/client/**/*.scss.d.ts"
     ]
@@ -23,10 +21,7 @@
       // "object-destructuring",
       // "array-destructuring"
     ],
-    "max-file-line-count": [
-      true,
-      300
-    ],
+    "max-file-line-count": [true, 300],
     "variable-name": [
       true,
       "ban-keywords",
@@ -34,14 +29,8 @@
       "check-format",
       "allow-leading-underscore"
     ],
-    "semicolon": [
-      true,
-      "never"
-    ],
-    "max-line-length": [
-      true,
-      80
-    ],
+    "semicolon": [true, "never"],
+    "max-line-length": [true, 80],
     "object-literal-sort-keys": false,
     "newline-per-chained-call": false,
     "member-ordering": false,
