@@ -36,7 +36,7 @@ declare namespace ReactIntl {
     component: ComponentConstructor<P & InjectedIntlProps>,
     options?: InjectIntlConfig,
   ): React.ComponentClass<P> & {
-    WrappedComponent: ComponentConstructor<P & InjectedIntlProps>
+    WrappedComponent: ComponentConstructor<P & InjectedIntlProps>,
   }
 
   function addLocaleData(data: Locale[] | Locale): void
@@ -160,9 +160,9 @@ declare namespace ReactIntl {
     interface Props extends MessageDescriptor {
       values?: { [key: string]: MessageValue | JSX.Element }
       tagName?: string
-      children?: (
-        ...formattedMessage: Array<string | JSX.Element>
-      ) => React.ReactNode,
+      children?(
+        ...formattedMessage: Array<string | JSX.Element>,
+: React.ReactNode
     }
   }
   class FormattedMessage extends React.Component<FormattedMessage.Props> {}
@@ -217,7 +217,7 @@ declare namespace ReactIntl {
 
   class IntlProvider extends React.Component<IntlProvider.Props> {
     getChildContext(): {
-      intl: InjectedIntl
+      intl: InjectedIntl,
     }
   }
 }
