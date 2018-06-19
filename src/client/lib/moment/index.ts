@@ -6,6 +6,4 @@ import 'moment/locale/pt-br'
 
 moment.locale('pt-br')
 
-export {
-  moment,
-}
+export { moment }

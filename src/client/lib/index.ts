@@ -1,5 +1,4 @@
 export * from './utils/toPath'
-export * from './utils/switchCase'
 export * from './decorators/class/connectState'
 
 export * from './react-dom'

@@ -4,30 +4,36 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.6
 
-import * as React from "react";
-import { RouteComponentProps, match } from "react-router";
-import { Location } from "history";
+import { Location } from 'history'
+import * as React from 'react'
+import { match, RouteComponentProps } from 'react-router'
 
 export interface RouteConfigComponentProps<T> extends RouteComponentProps<T> {
-    route?: RouteConfig;
+  route?: RouteConfig
 }
 
 export interface RouteConfig {
-    location?: Location;
-    // component?: React.ComponentType<RouteConfigComponentProps<any> | {}>;
-    component?: React.ComponentClass<any> | React.StatelessComponent<any>;
-    path?: string;
-    to?: Function;
-    exact?: boolean;
-    strict?: boolean;
-    routes?: RouteConfig[];
+  location?: Location
+  // component?: React.ComponentType<RouteConfigComponentProps<any> | {}>;
+  component?: React.ComponentClass<any> | React.StatelessComponent<any>
+  path?: string
+  to?: Function
+  exact?: boolean
+  strict?: boolean
+  routes?: RouteConfig[]
 }
 
 export interface MatchedRoute<T> {
-    route: RouteConfig;
-    match: match<T>;
+  route: RouteConfig
+  match: match<T>
 }
 
-export function matchRoutes<T>(routes: RouteConfig[], pathname: string): Array<MatchedRoute<T>>;
+export function matchRoutes<T>(
+  routes: RouteConfig[],
+  pathname: string,
+): Array<MatchedRoute<T>>
 
-export function renderRoutes(routes: RouteConfig[] | undefined, extraProps?: any): JSX.Element;
+export function renderRoutes(
+  routes: RouteConfig[] | undefined,
+  extraProps?: any,
+): JSX.Element

@@ -4,7 +4,7 @@ export enum LOCALES {
   EN = 'en',
 }
 
-export const DEFAULT_LOCALE = LOCALES.PT
+export const DEFAULT_LOCALE: string = LOCALES.PT
 // ex: Constant 2
 // use: const ad: Role = RolesTypes.ADMIN
 interface Roles {
@@ -22,11 +22,11 @@ export enum RolesTypes {
 export type Role = keyof Roles
 
 // ex: Constant 3
-export const STATUS_CODES = {
-  404: 'Not fount',
-  500: 'Internal server error',
-}
 
+export const STATUS_CODES = Object.freeze({
+  A: 'Not fount',
+  B: 'Internal server error',
+})
 // ex: Constant 4
 
 export enum PORT {
@@ -36,15 +36,3 @@ export enum PORT {
 }
 
 // ex: Constant 5 - Advanced
-export class API {
-  public static get SERVER() {
-    // const ping = async () => await fetch(`https://meu-servidor.com/api/v1/is-online`)
-    const ping = async () => true
-
-    if (ping) {
-      return 'A'
-    }
-
-    return 'B'
-  }
-}

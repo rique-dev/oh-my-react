@@ -1,0 +1,139 @@
+{
+  "extends": [
+    "tslint:recommended",
+    "tslint-config-airbnb",
+    "tslint-clean-code",
+    "tslint-react",
+    "tslint-config-prettier"
+  ],
+  "rulesDirectory": [
+    "tslint-plugin-prettier"
+  ],
+  "linterOptions": {
+    "exclude": [
+      "src/client/*index.tsx",
+      "src/client/**/*.scss.d.ts"
+    ]
+  },
+  "rules": {
+    "prettier": [
+      true,
+      {
+        "arrowParens": "avoid",
+        "semi": false,
+        "useTabs": false,
+        "tabWidth": 2,
+        "bracketSpacing": true,
+        "singleQuote": true,
+        "jsxBracketSameLine": false,
+        "printWidth": 100,
+        "trailingComma": "all",
+        "rangeEnd": 0
+      }
+    ],
+    "arrow-parens": false,
+    "arrow-return-shorthand": [
+      false
+    ],
+    "max-file-line-count": [
+      true,
+      300
+    ],
+    "import-blacklist": [
+      true,
+      "rxjs"
+    ],
+    "interface-over-type-literal": false,
+    "interface-name": false,
+    "member-access": false,
+    "member-ordering": [
+      true,
+      {
+        "order": "fields-first"
+      }
+    ],
+    "newline-before-return": false,
+    "no-any": false,
+    "no-empty-interface": false,
+    "no-import-side-effect": [
+      true
+    ],
+    "no-inferrable-types": [
+      true,
+      "ignore-params",
+      "ignore-properties"
+    ],
+    "no-invalid-this": [
+      true,
+      "check-function-in-method"
+    ],
+    "no-null-keyword": false,
+    "no-require-imports": false,
+    "no-submodule-imports": [
+      true,
+      "@src",
+      "rxjs"
+    ],
+    "no-this-assignment": [
+      true,
+      {
+        "allow-destructuring": true
+      }
+    ],
+    "no-unused-variable": [
+      true,
+      "react"
+    ],
+    "object-literal-sort-keys": false,
+    "object-literal-shorthand": false,
+    "one-variable-per-declaration": [
+      false
+    ],
+    "only-arrow-functions": [
+      true,
+      "allow-declarations"
+    ],
+    "prefer-method-signature": false,
+    "prefer-template": [
+      true,
+      "allow-single-concat"
+    ],
+    "triple-equals": [
+      true,
+      "allow-null-check"
+    ],
+    "type-literal-delimiter": true,
+    "variable-name": [
+      true,
+      "ban-keywords",
+      "allow-pascal-case",
+      "check-format",
+      "allow-leading-underscore"
+    ],
+    // "no-trailing-whitespace": true,
+    // "max-line-length": [
+    //   true,
+    //   90
+    // ],
+    // "quotemark": [
+    //   true,
+    //   "single",
+    //   "jsx-double"
+    // ],
+    // "semicolon": [
+    //   true,
+    //   "never"
+    // ],
+    "jsx-no-lambda": false,
+
+    "comment-format": false,
+    "jsdoc-format": false,
+    "no-unnecessary-initializer": false,
+    "no-shadowed-variable": false,
+    "ordered-imports": false,
+    "typedef": false,
+    "prefer-const": false,
+    "no-parameter-reassignment": false,
+    "import-name": false
+  }
+}

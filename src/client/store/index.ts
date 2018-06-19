@@ -1,16 +1,16 @@
 import {
-  createStore,
   applyMiddleware,
   combineReducers,
-  routerMiddleware,
-  reduxThunk,
   createLogger,
+  createStore,
   reduxPromiseMiddleware,
+  reduxThunk,
+  routerMiddleware,
 } from '@lib'
-import * as reducers from './state'
 import { apiService } from './middlewares'
+import * as reducers from './state'
 
-export default (history, initialState) => {
+export default (history: any, initialState: any) => {
   const rootReducer = combineReducers(reducers)
 
   return createStore(

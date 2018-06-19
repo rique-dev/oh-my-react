@@ -1,13 +1,16 @@
 import * as Redux from 'redux'
 
 interface Meta {
-  async: boolean,
-  blocking: boolean,
-  path: string,
-  method: string,
+  async: boolean
+  blocking: boolean
+  path: string
+  method: string
 }
 
-export const createAction = <Payload>(type: string) => (payload: Payload) => ({ payload, type })
+export const createAction = <Payload>(type: string) => (payload: Payload) => ({
+  payload,
+  type,
+})
 
 export * from 'redux'
 /**

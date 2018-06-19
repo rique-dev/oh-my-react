@@ -1,5 +1,5 @@
-import { State as Payload, Type } from './types'
 import { createAction } from '@lib'
+import { State as Payload, Type } from './types'
 
 export const increment = createAction<Payload>(Type.INCREMENT)
 

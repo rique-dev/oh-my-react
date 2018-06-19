@@ -1,5 +1,5 @@
-import { reactImportedComponent } from '@lib'
 import { Loading } from '@components'
+import { reactImportedComponent } from '@lib'
 import Radar from '@Login/Radar'
 
 const component = reactImportedComponent(() => import('./LoginPage'), {
@@ -9,7 +9,5 @@ const component = reactImportedComponent(() => import('./LoginPage'), {
 export default {
   component,
   path: '/login',
-  routes: [
-    Radar,
-  ],
+  routes: [Radar],
 }

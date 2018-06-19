@@ -1,4 +1,4 @@
-import { React, Link } from '@lib'
+import { Link, React } from '@lib'
 
 import Home from '@Home'
 

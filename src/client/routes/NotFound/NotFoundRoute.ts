@@ -1,5 +1,5 @@
-import { reactImportedComponent } from '@lib'
 import { Loading } from '@components'
+import { reactImportedComponent } from '@lib'
 
 const component = reactImportedComponent(() => import('./NotFoundPage'), {
   LoadingComponent: Loading,

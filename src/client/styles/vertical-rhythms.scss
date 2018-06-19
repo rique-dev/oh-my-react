@@ -1,4 +1,4 @@
-@import "typography-units";
+@import 'typography-units';
 
 // The default font size for all text in pixels
 $base-font-size: 16px !default;
@@ -31,7 +31,11 @@ $min-line-padding: 2px !default;
 
 // The leader is the amount of whitespace in a line.
 // It might be useful in your calculations.
-$base-leader: convert-length($base-line-height - $base-font-size, $rhythm-unit, $base-font-size);
+$base-leader: convert-length(
+  $base-line-height - $base-font-size,
+  $rhythm-unit,
+  $base-font-size
+);
 
 // The half-leader is the amount of whitespace above and below a line.
 // It might be useful in your calculations.
@@ -41,9 +45,13 @@ $base-half-leader: $base-leader / 2;
 $relative-font-sizing: if($rhythm-unit == px, false, true);
 
 // Validate units
-@if unit($base-font-size)   != 'px' { @warn "$base-font-size must resolve to a pixel unit."; }
+@if unit($base-font-size) != 'px' {
+  @warn "$base-font-size must resolve to a pixel unit.";
+}
 
-@if unit($base-line-height) != 'px' { @warn "$base-line-height must resolve to a pixel unit."; }
+@if unit($base-line-height) != 'px' {
+  @warn "$base-line-height must resolve to a pixel unit.";
+}
 
 @if $rhythm-unit != 'px' and $rhythm-unit != 'em' and $rhythm-unit != 'rem' {
   @warn "$rhythm-unit must be `px`, `em` or `rem`.";
@@ -51,7 +59,11 @@ $relative-font-sizing: if($rhythm-unit == px, false, true);
 
 // Calculate rhythm units.
 @function rhythm($lines: 1, $font-size: $base-font-size, $offset: 0) {
-  $rhythm: convert-length($lines * $base-line-height - $offset, $rhythm-unit, $font-size);
+  $rhythm: convert-length(
+    $lines * $base-line-height - $offset,
+    $rhythm-unit,
+    $font-size
+  );
 
   @if unit($rhythm) == px {
     $rhythm: floor($rhythm);
@@ -62,8 +74,11 @@ $relative-font-sizing: if($rhythm-unit == px, false, true);
 
 // Calculate the minimum multiple of rhythm units needed to contain the font-size.
 @function lines-for-font-size($font-size) {
-
-  $lines: if($round-to-nearest-half-line, ceil(2 * $font-size / $base-line-height) / 2, ceil($font-size / $base-line-height));
+  $lines: if(
+    $round-to-nearest-half-line,
+    ceil(2 * $font-size / $base-line-height) / 2,
+    ceil($font-size / $base-line-height)
+  );
 
   // If lines are cramped include some extra lead.
   @if ($lines * $base-line-height - $font-size) < ($min-line-padding * 2) {
@@ -102,11 +117,13 @@ $relative-font-sizing: if($rhythm-unit == px, false, true);
 @mixin establish-baseline($font-size: $base-font-size) {
   $relative-size: 100% * ($font-size / $browser-default-font-size);
 
-  @if support-legacy-browser(ie, "6") and (not $relative-font-sizing) {
+  @if support-legacy-browser(ie, '6') and (not $relative-font-sizing) {
     // IE 6 refuses to resize fonts set in pixels and it weirdly resizes fonts
     // whose root is set in ems. So we set the root font size in percentages of
     // the default font size, even if we are using absolute sizes elsewhere.
-    * html { font-size: $relative-size; }
+    * html {
+      font-size: $relative-size;
+    }
   }
 
   html {
@@ -145,7 +162,9 @@ $relative-font-sizing: if($rhythm-unit == px, false, true);
   }
 
   @else {
-    @include baseline-grid-background(if($round-to-nearest-half-line, rhythm(1/2), rhythm(1)));
+    @include baseline-grid-background(
+      if($round-to-nearest-half-line, rhythm(1/2), rhythm(1))
+    );
   }
 }
 
@@ -154,14 +173,21 @@ $relative-font-sizing: if($rhythm-unit == px, false, true);
 // of this font should use up. It does not have to be an integer, but it
 // defaults to the smallest integer that is large enough to fit the font.
 // Use $from-size to adjust from a font-size other than the base font-size.
-@mixin adjust-font-size-to($to-size, $lines: auto, $from-size: $base-font-size) {
+@mixin adjust-font-size-to(
+  $to-size,
+  $lines: auto,
+  $from-size: $base-font-size
+) {
   $to-size: convert-length($to-size, px, $from-size);
 
   @if $lines == auto {
     $lines: lines-for-font-size($to-size);
   }
 
-  @include output-rhythm(font-size, convert-length($to-size, $rhythm-unit, $from-size));
+  @include output-rhythm(
+    font-size,
+    convert-length($to-size, $rhythm-unit, $from-size)
+  );
   @include adjust-leading-to($lines, $to-size);
 }
 
@@ -249,7 +275,10 @@ $relative-font-sizing: if($rhythm-unit == px, false, true);
   // If applying borders to all sides, use shorthand properties
   $border-prop: if($side == all, border, border-#{$side});
 
-  @include output-rhythm(#{$border-prop}-width, convert-length($width, $rhythm-unit, $font-size));
+  @include output-rhythm(
+    #{$border-prop}-width,
+    convert-length($width, $rhythm-unit, $font-size)
+  );
 
   #{$border-prop}-style: nth($border-style, 1);
 
@@ -258,7 +287,10 @@ $relative-font-sizing: if($rhythm-unit == px, false, true);
   }
   $padding-prop: if($side == all, padding, padding-#{$side});
 
-  @include output-rhythm(#{$padding-prop}, rhythm($lines, $font-size, $offset: $width));
+  @include output-rhythm(
+    #{$padding-prop},
+    rhythm($lines, $font-size, $offset: $width)
+  );
 }
 
 // Apply a leading border.
@@ -269,7 +301,13 @@ $relative-font-sizing: if($rhythm-unit == px, false, true);
   $font-size: $base-font-size,
   $border-style: $default-rhythm-border-style
 ) {
-  @include apply-side-rhythm-border(top, $width, $lines, $font-size, $border-style);
+  @include apply-side-rhythm-border(
+    top,
+    $width,
+    $lines,
+    $font-size,
+    $border-style
+  );
 }
 
 // Apply a trailing border.
@@ -279,7 +317,13 @@ $relative-font-sizing: if($rhythm-unit == px, false, true);
   $font-size: $base-font-size,
   $border-style: $default-rhythm-border-style
 ) {
-  @include apply-side-rhythm-border(bottom, $width, $lines, $font-size, $border-style);
+  @include apply-side-rhythm-border(
+    bottom,
+    $width,
+    $lines,
+    $font-size,
+    $border-style
+  );
 }
 
 // Apply both leading and trailing borders.
@@ -310,5 +354,11 @@ $relative-font-sizing: if($rhythm-unit == px, false, true);
   $font-size: $base-font-size,
   $border-style: $default-rhythm-border-style
 ) {
-  @include apply-side-rhythm-border(all, $width, $lines, $font-size, $border-style);
+  @include apply-side-rhythm-border(
+    all,
+    $width,
+    $lines,
+    $font-size,
+    $border-style
+  );
 }

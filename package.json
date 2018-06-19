@@ -11,7 +11,6 @@
     "i18n:extract": "extract-messages -l=pt,en -o src/client/translations/extracted -d pt --flat false 'src/client/**/*Messages.ts'",
     "i18n:watch": "node scripts/watchI18nMessages.js",
     "prebuild": "npm run clean:dist && npm run lint",
-    "format": "prettier --write \"src/**/*.{ts,tsx,scss}\"",
     "build:webpack": "webpack -p --config=configs/webpack/prod.js",
     "build:server": "npm run build && node express.js",
     "build": "npm run build:webpack && npm run doc:build",
@@ -21,7 +20,44 @@
     "pretest": "npm run lint",
     "test": "jest --watch --coverage --config=configs/jest/jest.config.json",
     "doc": "start-storybook -p 6000",
-    "doc:build": "build-storybook"
+    "doc:build": "build-storybook",
+    "precommit": "lint-staged",
+    "format": "npm run format:scss && npm run format:ts",
+    "format:scss": "prettier-stylelint --write",
+    "format:ts": "prettier-tslint fix \"./**/*.{tsx,ts}\""
+  },
+  "prettier": {
+    "arrowParens": "avoid",
+    "semi": false,
+    "useTabs": false,
+    "tabWidth": 2,
+    "bracketSpacing": true,
+    "singleQuote": true,
+    "jsxBracketSameLine": false,
+    "printWidth": 80,
+    "trailingComma": "all"
+  },
+  "lint-staged": {
+    "{src}/**/*.ts": [
+      "prettier --write"
+    ]
+  },
+  "jest": {
+    "transform": {
+      "\\.(jsx?|tsx?)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/lib/"
+    ],
+    "testRegex": "(/test/.*|\\.(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json"
+    ]
   },
   "dependencies": {
     "@material-ui/core": "^1.1.0",
@@ -105,6 +141,7 @@
     "jest": "^22.4.4",
     "json-loader": "^0.5.7",
     "jsonfile": "^4.0.0",
+    "lint-staged": "^7.2.0",
     "node-sass": "^4.9.0",
     "node-watch": "^0.5.8",
     "null-loader": "^0.1.1",
@@ -125,7 +162,8 @@
     "postcss-pseudoelements": "^5.0.0",
     "postcss-selector-matches": "^3.0.1",
     "postcss-selector-not": "^3.0.1",
-    "prettier": "1.13.5",
+    "prettier-stylelint": "^0.4.2",
+    "prettier-tslint": "^0.4.0",
     "raw-loader": "^0.5.1",
     "react-hot-loader": "^4.1.2",
     "react-intl-translations-manager": "^5.0.3",
@@ -143,8 +181,7 @@
     "tslint": "^5.9.1",
     "tslint-clean-code": "^0.2.7",
     "tslint-config-airbnb": "^5.9.2",
-    "tslint-react": "^3.6.0",
-    "typescript": "^2.8.3",
+    "typescript": "^2.9.2",
     "typings-for-css-modules-loader": "^1.7.0",
     "url-loader": "^1.0.1",
     "webpack": "^4.6.0",
@@ -153,22 +190,5 @@
     "webpack-dev-server": "^3.1.3",
     "webpack-merge": "^4.1.2",
     "webpack-shell-plugin": "^0.5.0"
-  },
-  "jest": {
-    "transform": {
-      "\\.(jsx?|tsx?)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
-    },
-    "testPathIgnorePatterns": [
-      "/node_modules/",
-      "/lib/"
-    ],
-    "testRegex": "(/test/.*|\\.(test|spec))\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json"
-    ]
   }
 }

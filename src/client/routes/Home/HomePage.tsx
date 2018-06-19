@@ -1,25 +1,40 @@
-import { React, Page, FormattedMessage, Link, classNames, moment, Helmet } from '@lib'
+import {
+  classNames,
+  FormattedMessage,
+  Helmet,
+  Link,
+  moment,
+  Page,
+  React,
+} from '@lib'
 
-import Login from '@Login'
 import { PORT } from '@constants'
+import Login from '@Login'
 import { connectCounter, Props as CounterProps } from '@State/counter'
 
-import style from './HomeStyle.scss'
-import messages from './HomeMessages'
 import { HomeParams } from './'
+import messages from './HomeMessages'
+import style from './HomeStyle.scss'
 
 const styleHover = classNames({
   [style.someClass]: false,
   [style.test]: false,
 })
-
 interface HomeProps extends CounterProps {
   title: string
 }
 @connectCounter()
 export default class HomePage extends Page<HomeParams, HomeProps> {
-  render() {
-    const { count, isPrime, incrementComplexy, increment, decrement, match, list } = this.props
+  render(): JSX.Element {
+    const {
+      count,
+      isPrime,
+      incrementComplexy,
+      increment,
+      decrement,
+      match,
+      list,
+    } = this.props
 
     return (
       <div className={styleHover}>
@@ -35,24 +50,21 @@ export default class HomePage extends Page<HomeParams, HomeProps> {
         <br />
         Current counter value: {count}
         <div>
-          <button onClick={e => list.pop()}>list pop</button>
+          <button onClick={() => increment({ count: 1 })}>Increment</button>
         </div>
         <div>
-          <button onClick={e => increment({ count: 1 })}>Increment</button>
-        </div>
-        <div>
-          <button
-            onClick={(e: React.MouseEvent<HTMLButtonElement>) => incrementComplexy({ count: 1 })}
-          >
+          <button onClick={() => incrementComplexy({ count: 1 })}>
             incrementComplexy
           </button>
         </div>
         <div>
-          <button onClick={e => decrement({ count: 10 })}>Decrement</button>
+          <button onClick={() => decrement({ count: 10 })}>Decrement</button>
         </div>
         <h1 className={style.someClassAction}>Home {PORT.DEVELOPMENT}</h1>
         <h2 className={style.someClassAction}>
-          <div className={style.someClassAction}>{moment(new Date()).format()}</div>
+          <div className={style.someClassAction}>
+            {moment(new Date()).format()}
+          </div>
         </h2>
         <FormattedMessage {...messages.helloWorld} />
         <li>

@@ -1,5 +1,5 @@
-import { toPath, reactImportedComponent } from '@lib'
 import { Loading } from '@components'
+import { reactImportedComponent, toPath } from '@lib'
 import { Params } from '.'
 
 const component = reactImportedComponent(() => import('./RadarPage'), {
