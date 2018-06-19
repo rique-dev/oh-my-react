@@ -23,17 +23,17 @@ declare module 'react-imported-component' {
     ErrorComponent?: ComponentType<any>
     exportPicker?(a: any): any
     onError?(a: any): any
-    render?(
+    render?: (
       component: ComponentType<P>,
       state: LoadableComponentState,
       props: P,
-: ReactNode,
+    ) => ReactNode
   }
 
   type HOC = <P>(
-      loader: () => Promise<DefaultComponent<P>>,
-      options?: ComponentOptions<P>,
-    ) => ComponentType<P>
+    loader: () => Promise<DefaultComponent<P>>,
+    options?: ComponentOptions<P>,
+  ) => ComponentType<P>
 
   const importedComponent: HOC
 
