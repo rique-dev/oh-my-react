@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "keyofStringsOnly": true,
     "outDir": "./dist/",
     "sourceMap": true,
     "noImplicitAny": true,
@@ -39,6 +40,7 @@
       "@styles/*": ["src/client/styles/*"],
       "@constants/*": ["src/client/constants/*"],
       "@constants": ["src/client/constants"],
+      "@translations/*": ["src/client/translations/*"],
       "@translations": ["src/client/translations"],
       "@vendors": ["src/client/vendors"],
       "*": ["types/*"]
