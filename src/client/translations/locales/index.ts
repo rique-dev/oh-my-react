@@ -1,7 +1,7 @@
 import { DEFAULT_LOCALE, LOCALES } from '@constants'
 
-import enTranslationMessages from './locales/en.json'
-import ptTranslationMessages from './locales/pt.json'
+import enTranslationMessages from './en.json'
+import ptTranslationMessages from './pt.json'
 
 const formatTranslationMessages = (locale: any, messages: any) => {
   const defaultFormattedMessages: any =
