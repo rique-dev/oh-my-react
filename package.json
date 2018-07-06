@@ -6,6 +6,7 @@
   "scripts": {
     "tsc": "tsc",
     "clean:dist": "rm -f -r -d dist",
+    "project:clean": "rm -rf node_modules && rm yarn.lock && yarn",
     "lint": "npm run lint:ts && npm run lint:sass",
     "lint:ts": "tslint \"src/**/*.ts*\"",
     "lint:sass": "stylelint ./src/**/*.scss --syntax scss",
