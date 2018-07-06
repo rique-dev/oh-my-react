@@ -1,26 +1,23 @@
-const StyleLintPlugin = require('stylelint-webpack-plugin');
-const webpack = require('webpack');
-const {
-  CheckerPlugin
-} = require('awesome-typescript-loader');
+const StyleLintPlugin = require('stylelint-webpack-plugin')
+const webpack = require('webpack')
+const { CheckerPlugin } = require('awesome-typescript-loader')
 
-const paths = require('./../paths');
+const paths = require('./../paths')
 
-const regexScript = /\.(js|jsx|mjs|ts|tsx)$/;
-const regexStyle = /\.(css|less|styl|scss|sass|sss)$/;
-const regexImage = /\.(bmp|gif|jpg|jpeg|png|svg|webp)$/;
+const regexScript = /\.(js|jsx|mjs|ts|tsx)$/
+const regexStyle = /\.(less|styl|scss|sass|sss)$/
+const regexImage = /\.(bmp|gif|jpg|jpeg|png|svg|webp)$/
+const regexFonts = /\.(woff|woff2|eot|ttf)$/
 
-const isDev = process.env.NODE_ENV === 'development';
+const isDev = process.env.NODE_ENV === 'development'
 
-const staticAssetName = isDev ?
-  '[path][name].[ext]?[hash:8]' :
-  '[hash:8].[ext]';
+const staticAssetName = isDev ? '[path][name].[ext]?[hash:8]' : '[hash:8].[ext]'
 
 const minimizeCssOptions = {
   discardComments: {
-    removeAll: true
-  }
-};
+    removeAll: true,
+  },
+}
 
 const alias = {
   '@': paths.appSrcClient,
@@ -32,6 +29,7 @@ const alias = {
   '@components': `${paths.appSrcClient}/components`,
   '@containers/*': `${paths.appSrcClient}/containers/*`,
   '@containers': `${paths.appSrcClient}/containers`,
+  '@images/*': `${paths.appSrcClient}/images/*`,
   '@images': `${paths.appSrcClient}/images`,
   '@lib/*': `${paths.appSrcClient}/lib/*`,
   '@lib': `${paths.appSrcClient}/lib`,
@@ -41,62 +39,88 @@ const alias = {
   '@Login': `${paths.appSrcClient}/routes/Login`,
   '@redux': `${paths.appSrcClient}/redux`,
   '@styles': `${paths.appSrcClient}/styles`,
-  'styles': `${paths.appSrcClient}/styles`,
+  styles: `${paths.appSrcClient}/styles`,
+  '@translations/*': `${paths.appSrcClient}/translations/*`,
   '@translations': `${paths.appSrcClient}/translations`,
   '@vendors/*': `${paths.appSrcClient}/vendors/*`,
   '@vendors': `${paths.appSrcClient}/vendors`,
-};
+}
 
 const rulesScript = {
   test: regexScript,
   loader: 'babel-loader',
-  rules: [{
-    test: /\.(ts|tsx)$/,
-    loader: 'awesome-typescript-loader'
-  },
-  {
-    test: /\.(js)$/,
-    loader: 'source-map-loader'
-  }
+  rules: [
+    {
+      test: /\.(ts|tsx)$/,
+      loader: 'awesome-typescript-loader',
+      exclude: /node_modules/,
+    },
+    {
+      test: /\.(js)$/,
+      loader: 'source-map-loader',
+    },
   ],
   exclude: /node_modules/,
   options: {
     cacheDirectory: isDev,
-    babelrc: true
-  }
-};
+    babelrc: true,
+  },
+}
 
-const rulesStyle = {
+const ruleStyle = {
+  test: /\.css$/,
+  rules: [
+    {
+      loader: 'style-loader',
+    },
+    {
+      loader: 'css-loader',
+    },
+    {
+      loader: 'resolve-url-loader',
+    },
+  ],
+}
+
+const rulesPreStyle = {
   test: regexStyle,
-  rules: [{
-    loader: 'style-loader'
-  },
-  {
-    loader: 'typings-for-css-modules-loader',
-    options: {
-      sourceMap: false,
-      importLoaders: 2,
-      modules: true,
-      localIdentName: isDev ? '[name]_[local]_[hash:base64:5]' : '[hash:base64:5]',
-      minimize: isDev ? false : minimizeCssOptions,
-      camelCase: true,
-      namedExport: true,
-      sass: true,
-    }
-  },
-  {
-    loader: 'postcss-loader',
-    options: {
-      config: {
-        path: './configs/postcss.config.js'
-      }
-    }
-  },
-  {
-    loader: 'sass-loader'
-  },
-  ]
-};
+  rules: [
+    {
+      loader: 'style-loader',
+    },
+    {
+      loader: 'typings-for-css-modules-loader',
+      options: {
+        sourceMap: false,
+        importLoaders: 2,
+        modules: true,
+        localIdentName: isDev
+          ? '[name]_[local]_[hash:base64:5]'
+          : '[hash:base64:5]',
+        minimize: isDev ? false : minimizeCssOptions,
+        camelCase: true,
+        namedExport: true,
+        sass: true,
+      },
+    },
+    {
+      loader: 'postcss-loader',
+      options: {
+        config: {
+          path: './configs/postcss.config.js',
+        },
+      },
+    },
+    {
+      loader: 'sass-loader',
+    },
+  ],
+}
+
+const rulesFonts = {
+  test: regexFonts,
+  loader: 'url-loader?limit=100000&name=[name]-[hash].[ext]',
+}
 
 const rulesImage = {
   test: regexImage,
@@ -108,7 +132,7 @@ const rulesImage = {
       options: {
         mozjpeg: {
           progressive: true,
-          quality: 65
+          quality: 65,
         },
         // optipng.enabled: false will disable optipng
         optipng: {
@@ -116,18 +140,18 @@ const rulesImage = {
         },
         pngquant: {
           quality: '65-90',
-          speed: 4
+          speed: 4,
         },
         gifsicle: {
           interlaced: false,
         },
         webp: {
-          quality: 75
-        }
-      }
+          quality: 75,
+        },
+      },
     },
-  ]
-};
+  ],
+}
 
 const rulesJson = {
   test: /\.json$/,
@@ -140,14 +164,14 @@ const rulesVideo = {
   use: {
     loader: 'url-loader',
     options: {
-      limit: 10000
-    }
-  }
+      limit: 10000,
+    },
+  },
 }
 
 const rulesRaw = {
   test: /\.txt$/,
-  loader: 'raw-loader'
+  loader: 'raw-loader',
 }
 
 const rulesExcludeAllFiles = {
@@ -158,27 +182,33 @@ const rulesExcludeAllFiles = {
     /\.json$/,
     /\.txt$/,
     /\.md$/,
-    /\.html$/
+    /\.html$/,
   ],
   loader: 'file-loader',
   options: {
-    name: staticAssetName
-  }
+    name: staticAssetName,
+  },
 }
 
 const rules = [
   rulesScript,
-  rulesStyle,
+  rulesPreStyle,
+  ruleStyle,
+  // rulesFonts,
   rulesImage,
   rulesJson,
   rulesRaw,
   rulesVideo,
   rulesExcludeAllFiles,
   // Exclude dev modules from production build
-  ...(isDev ? [] : [{
-    test: `${paths.appNodeModules}/react-deep-force-update/lib/index.js`,
-    loader: 'null-loader'
-  }]),
+  ...(isDev
+    ? []
+    : [
+        {
+          test: `${paths.appNodeModules}/react-deep-force-update/lib/index.js`,
+          loader: 'null-loader',
+        },
+      ]),
 ]
 
 const config = {
@@ -186,21 +216,37 @@ const config = {
     path: paths.appBuildClient,
     publicPath: '/',
     filename: isDev ? '[name].js' : '[name].[hash].js',
-    chunkFilename: isDev ? '[name].js' : '[name].[hash].js'
+    chunkFilename: isDev ? '[name].js' : '[name].[hash].js',
   },
   resolve: {
     modules: ['node_modules', 'src'],
     alias: alias,
-    extensions: ['.ts', '.tsx', '.js', '.jsx', '.scss', '.sass', '.css', '.json', '.svg', '.jpeg', '.png']
+    extensions: [
+      '.ts',
+      '.tsx',
+      '.js',
+      '.jsx',
+      '.scss',
+      '.sass',
+      '.css',
+      '.json',
+      '.svg',
+      '.jpeg',
+      '.png',
+    ],
   },
   module: {
     strictExportPresence: true,
-    rules: rules
+    rules: rules,
   },
   plugins: [
     new CheckerPlugin(),
     new StyleLintPlugin(),
-    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/, /(scss|sass|css)\.d\.ts$/),
+    new webpack.IgnorePlugin(
+      /^\.\/locale$/,
+      /moment$/,
+      /(scss|sass|css)\.d\.ts$/,
+    ),
   ],
   optimization: {
     splitChunks: {
@@ -208,14 +254,15 @@ const config = {
         commons: {
           chunks: 'initial',
           test: /[\\/]node_modules[\\/]/,
-          name: 'vendors'
-        }
-      }
-    }
+          name: 'vendors',
+        },
+      },
+    },
   },
-};
+}
 
 module.exports = {
   rules,
   config,
+  alias,
 }
