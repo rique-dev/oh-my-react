@@ -1,0 +1,51 @@
+<svg id="its4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="500" viewBox="0 0 500 500">
+  <metadata><?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.6-c142 79.160924, 2017/07/13-01:06:39        ">
+   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+      <rdf:Description rdf:about=""/>
+   </rdf:RDF>
+</x:xmpmeta>
+<?xpacket end="w"?></metadata>
+<defs>
+    <style>
+      .cls-1 {
+        fill: #4b77a9;
+        stroke: #fff;
+        stroke-linejoin: round;
+        stroke-width: 8px;
+      }
+
+      .cls-2 {
+        fill: #fff;
+        filter: url(#filter);
+      }
+
+      .cls-2, .cls-3 {
+        fill-rule: evenodd;
+      }
+
+      .cls-3 {
+        fill: #004066;
+        filter: url(#filter-2);
+      }
+    </style>
+    <filter id="filter" x="79" y="52" width="321" height="410" filterUnits="userSpaceOnUse">
+      <feOffset result="offset" dy="3" in="SourceAlpha"/>
+      <feGaussianBlur result="blur" stdDeviation="5.196"/>
+      <feFlood result="flood" flood-opacity="0.25"/>
+      <feComposite result="composite" operator="in" in2="blur"/>
+      <feBlend result="blend" in="SourceGraphic"/>
+    </filter>
+    <filter id="filter-2" x="108.344" y="75.875" width="205.406" height="116.031" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="3.606" in="SourceAlpha"/>
+      <feFlood result="flood" flood-opacity="0.35"/>
+      <feComposite result="composite" operator="out" in2="blur"/>
+      <feOffset result="offset" dy="1"/>
+      <feComposite result="composite-2" operator="in" in2="SourceAlpha"/>
+      <feBlend result="blend" mode="multiply" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <rect class="cls-1" x="6" y="6" width="488" height="488" rx="25" ry="25"/>
+  <path id="_4" data-name="4" class="cls-2" d="M327.3,434.654V354.865h48.141v-62.62H327.3V78.47H263.472L108.231,288.5v66.366H258.345v79.789H327.3Zm-158.4-142.409,89.437-122.014V292.245H168.908Z" transform="translate(-4 -4)"/>
+  <path id="it_s" data-name="it’s" class="cls-3" d="M130.241,96.114V75.864H108.355v20.25h21.886Zm0,93.93V107.33H108.355v82.714h21.886Zm45.407-82.714V78.122L153.684,77.9V107.33H143.637v17.446h10.047v36.061q0,11.606.7,15.421a20.286,20.286,0,0,0,3.077,8.529,15.569,15.569,0,0,0,6.971,5.14,27.417,27.417,0,0,0,10.67,1.986,43.511,43.511,0,0,0,17.291-3.271l-1.87-16.979q-5.764,2.1-8.8,2.1a6.172,6.172,0,0,1-3.7-1.09,4.8,4.8,0,0,1-1.948-2.765q-0.427-1.674-.428-11.8V124.776H190.6V107.33H175.648Zm29.6-9.269h10.592q-0.157,6.621-2.96,10.437t-9.424,6l4.284,9.035a31.906,31.906,0,0,0,11.566-6.854,22.39,22.39,0,0,0,6.192-9.853q1.635-5.49,1.636-14.993V76.175H205.245V98.061Zm44.122,87q9.852,6.855,26.754,6.854,18.613,0,28.116-8.178t9.5-19.549q0-10.435-6.854-16.278-6.933-5.763-24.417-9.736t-20.445-6.153a4.836,4.836,0,0,1-2.181-3.972,5.182,5.182,0,0,1,2.493-4.439q3.738-2.414,12.384-2.415,6.852,0,10.553,2.57a12.772,12.772,0,0,1,5.024,7.4l20.639-3.817q-3.115-10.824-11.371-16.356t-25.235-5.53q-17.837,0-26.325,7.321a22.943,22.943,0,0,0-8.49,18.07,21.311,21.311,0,0,0,9.814,18.615q7.086,4.83,33.569,10.67,5.683,1.325,7.321,2.882a5.749,5.749,0,0,1,1.558,4.128,6.955,6.955,0,0,1-2.882,5.841q-4.284,3.115-12.773,3.116-7.711,0-12-3.311a16.084,16.084,0,0,1-5.685-9.7l-21.964,3.349A31.568,31.568,0,0,0,249.367,185.059Z" transform="translate(-4 -4)"/>
+</svg>

@@ -21,10 +21,9 @@ const minimizeCssOptions = {
 
 const alias = {
   '@': paths.appSrcClient,
-  '@State/*': `${paths.appSrcClient}/store/state/*`,
-  '@State': `${paths.appSrcClient}/store/state`,
-  '@constants/*': `${paths.appSrcClient}/constants/*`,
-  '@constants': `${paths.appSrcClient}/constants`,
+  '@state/*': `${paths.appSrcClient}/store/state/*`,
+  '@state': `${paths.appSrcClient}/store/state`,
+  '@constants': `${paths.appSrcClient}/constants.ts`,
   '@components/*': `${paths.appSrcClient}/components/*`,
   '@components': `${paths.appSrcClient}/components`,
   '@containers/*': `${paths.appSrcClient}/containers/*`,

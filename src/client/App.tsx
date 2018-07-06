@@ -10,7 +10,7 @@ import {
 } from '@lib'
 
 import { DEFAULT_LOCALE } from '@constants'
-// import { connectRoot, Props as RootProps } from '@State/root'
+// import { connectRoot, Props as RootProps } from '@state/root'
 import { translationMessages } from '@translations/locales'
 import routes from './routes'
 import configureStore from './store'
@@ -41,15 +41,11 @@ export default class App extends React.Component {
   //   })
   // }
 
-  show(): void {
-    this.setState({})
-  }
-
+  // Remover isso
+  // tslint:disable
   render(): JSX.Element {
     // const { locale } = this.props as RootProps
     const locale = DEFAULT_LOCALE
-
-    this.show()
 
     return (
       <ReduxProvider store={reduxStore}>

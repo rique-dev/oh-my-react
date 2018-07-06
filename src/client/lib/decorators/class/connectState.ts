@@ -1,4 +1,4 @@
-import { RootState } from '@State/index'
+import { RootState } from '@state/index'
 
 import {
   connect as originalConnect,

@@ -10,7 +10,7 @@ import {
 
 import { PORT } from '@constants'
 import Login from '@Login'
-import { connectCounter, Props as CounterProps } from '@State/counter'
+import { connectCounter, Props as CounterProps } from '@state/counter'
 
 import { HomeParams } from './'
 import messages from './HomeMessages'
