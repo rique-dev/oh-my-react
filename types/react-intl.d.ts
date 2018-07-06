@@ -100,7 +100,7 @@ declare namespace ReactIntl {
   }
 
   interface InjectedIntlProps {
-    intl: InjectedIntl
+    intl?: InjectedIntl
   }
 
   namespace IntlComponent {

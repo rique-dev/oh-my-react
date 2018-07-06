@@ -1,6 +1,7 @@
-export * from './utils/toPath'
-export * from './decorators/class/connectState'
+import * as MaterialUI from './material-ui'
 
+export * from './utils'
+export * from './decorators/class/connectState'
 export * from './react-dom'
 export * from './react-hot-loader'
 export * from './react-deep-force-update'
@@ -22,3 +23,7 @@ export * from './moment'
 export * from './lodash'
 export * from './path-to-regexp'
 export * from './react-helmet'
+export * from './autobind-decorator'
+export { default as PropTypes } from './prop-types'
+
+export { MaterialUI }
