@@ -10,10 +10,15 @@ import {
 } from '@lib'
 
 import { DEFAULT_LOCALE } from '@constants'
-import { logo } from '@images'
-import { translationMessages } from '@translations'
+// import { connectRoot, Props as RootProps } from '@State/root'
+import { translationMessages } from '@translations/locales'
 import routes from './routes'
 import configureStore from './store'
+
+// tslint:disable
+import '@styles/global.scss'
+import '@vendors'
+// tslint:enable
 
 const browserHistory = History.createBrowserHistory()
 
@@ -27,24 +32,41 @@ const reduxStore = configureStore(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
 )
 
-export default () => (
-  <ReduxProvider store={reduxStore}>
-    <IntlProvider
-      locale={DEFAULT_LOCALE}
-      key={DEFAULT_LOCALE}
-      messages={translationMessages[DEFAULT_LOCALE]}
-    >
-      <ConnectedRouter history={browserHistory}>
-        <Router>
-          <div>
-            <div>
-              <img src={logo} width="48" />
-              <div>asd</div>
-            </div>
-            <Switch>{renderRoutes(routes)}</Switch>
-          </div>
-        </Router>
-      </ConnectedRouter>
-    </IntlProvider>
-  </ReduxProvider>
-)
+// @connectRoot()
+export default class App extends React.Component {
+  // componentWillMount(): void {
+  //   const { changeLocale } = this.props as RootProps
+  //   changeLocale({
+  //     locale: DEFAULT_LOCALE,
+  //   })
+  // }
+
+  show(): void {
+    this.setState({})
+  }
+
+  render(): JSX.Element {
+    // const { locale } = this.props as RootProps
+    const locale = DEFAULT_LOCALE
+
+    this.show()
+
+    return (
+      <ReduxProvider store={reduxStore}>
+        <IntlProvider
+          locale={locale}
+          key={locale}
+          messages={translationMessages[locale]}
+        >
+          <ConnectedRouter history={browserHistory}>
+            <Router>
+              <div>
+                <Switch>{renderRoutes(routes)}</Switch>
+              </div>
+            </Router>
+          </ConnectedRouter>
+        </IntlProvider>
+      </ReduxProvider>
+    )
+  }
+}
