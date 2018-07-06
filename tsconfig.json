@@ -42,6 +42,7 @@
       "@constants": ["src/client/constants"],
       "@translations/*": ["src/client/translations/*"],
       "@translations": ["src/client/translations"],
+      "@vendors/*": ["src/client/vendors/*"],
       "@vendors": ["src/client/vendors"],
       "*": ["types/*"]
     }
