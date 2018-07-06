@@ -1,14 +1,65 @@
-import { Avatar, IconButton, LogoIts4 } from '@components'
+import {
+  Avatar,
+  IconButton,
+  IconButtonList,
+  IconButtonListProps,
+  LogoIts4,
+} from '@components'
 import Home from '@Home'
 import { luiz } from '@images'
 import { bind, Link, React } from '@lib'
 import { Grid } from '@lib/material-ui'
 import s from './Header.scss'
 
-export default class Header extends React.Component {
+interface HeaderState {
+  itemsToAccess: IconButtonListProps
+}
+
+export interface HeaderProps {
+  menuIsOpen?: boolean
+}
+
+export default class Header extends React.Component<HeaderProps, HeaderState> {
+  componentWillMount(): void {
+    this.setState({
+      itemsToAccess: {
+        list: [
+          {
+            handleClick: this.handleClickIconMock,
+            nameIcon: 'chat-bubbles',
+            badgeContent: 7,
+            color: '#fff',
+          },
+          {
+            handleClick: this.handleClickIconMock,
+            nameIcon: 'bell-ringing',
+            badgeContent: 4,
+            color: '#fff',
+          },
+          {
+            handleClick: this.handleClickIconMock,
+            nameIcon: 'siren-alert',
+            badgeContent: 12,
+            color: '#fff',
+          },
+          {
+            handleClick: this.handleClickIconMock,
+            nameIcon: 'gamepad',
+            badgeContent: 93,
+            color: '#fff',
+          },
+        ],
+      },
+    })
+  }
+
   @bind
   clickButtonMenu(e: React.MouseEvent<HTMLElement>): void {
     this.setState({}) // Envia para redux
+  }
+
+  handleClickIconMock(): void {
+    this.setState({})
   }
 
   render(): JSX.Element {
@@ -40,7 +91,7 @@ export default class Header extends React.Component {
         </Grid>
         <Grid item container justify="flex-end" xs={10}>
           <Grid item xs={11} container justify="flex-end" alignItems="center">
-            asd
+            <IconButtonList list={this.state.itemsToAccess.list} />
           </Grid>
           <Grid item>
             <div className={s.wrapperAvatar}>
