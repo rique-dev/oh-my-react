@@ -1,0 +1,12 @@
+$link-color: #4976ab;
+$link-amount: 30;
+
+.scope {
+  color: $link-color;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    color: darken($link-color, $link-amount);
+  }
+}
