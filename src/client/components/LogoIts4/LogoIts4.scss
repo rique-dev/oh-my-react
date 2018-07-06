@@ -1,0 +1,9 @@
+.margin-safe-logo {
+  margin-right: 5px;
+}
+
+.svg {
+  &-white img svg path {
+    fill: #fff;
+  }
+}
