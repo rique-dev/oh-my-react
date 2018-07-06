@@ -1,0 +1,19 @@
+/* stylelint-disable */
+:global {
+  i[class*='icon-'] {
+    font-size: 24px;
+
+    & .double {
+      font-size: 48px;
+    }
+  }
+
+  i[class*='--small'] {
+    font-size: 18px;
+
+    & .double {
+      font-size: 36px;
+    }
+  }
+}
+/* stylelint-enable */

@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>icons</title>
+    <style>
+
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .preview {
+            width: 100px;
+            display: inline-block;
+            margin: 10px;
+        }
+
+        .preview .inner {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            background: #f5f5f5;
+            -webkit-border-radius: 3px 3px 0 0;
+            -moz-border-radius: 3px 3px 0 0;
+            border-radius: 3px 3px 0 0;
+        }
+
+        .preview .inner i {
+            line-height: 85px;
+            font-size: 40px;
+            color: #333;
+        }
+
+        .label {
+            display: inline-block;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 5px;
+            font-size: 10px;
+            font-family: Monaco, monospace;
+            color: #666;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            background: #ddd;
+            -webkit-border-radius: 0 0 3px 3px;
+            -moz-border-radius: 0 0 3px 3px;
+            border-radius: 0 0 3px 3px;
+            color: #666;
+        }
+
+        @font-face {
+    font-family: "icons";
+    src: url("./icons.eot?d9ff165f07cb2e5e80565bc94dce26e4?#iefix") format("embedded-opentype"),
+url("./icons.woff2?d9ff165f07cb2e5e80565bc94dce26e4") format("woff2"),
+url("./icons.woff?d9ff165f07cb2e5e80565bc94dce26e4") format("woff"),
+url("./icons.ttf?d9ff165f07cb2e5e80565bc94dce26e4") format("truetype"),
+url("./icons.svg?d9ff165f07cb2e5e80565bc94dce26e4#icons") format("svg");
+}
+
+i {
+    line-height: 1;
+}
+
+i[class^="icon-"]:before, i[class*=" icon-"]:before {
+    font-family: icons !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-agenda:before {
+    content: "\f101";
+}
+.icon-alarm__cancel--small:before {
+    content: "\f102";
+}
+.icon-apple--small:before {
+    content: "\f103";
+}
+.icon-arrow-down__long--small:before {
+    content: "\f104";
+}
+.icon-arrow-left4--small:before {
+    content: "\f105";
+}
+.icon-arrow-left__filled--small:before {
+    content: "\f106";
+}
+.icon-arrow-left--small:before {
+    content: "\f107";
+}
+.icon-arrow-right--small:before {
+    content: "\f108";
+}
+.icon-bell-ringing:before {
+    content: "\f109";
+}
+.icon-block-settings:before {
+    content: "\f10a";
+}
+.icon-book--small:before {
+    content: "\f10b";
+}
+.icon-business-card:before {
+    content: "\f10c";
+}
+.icon-calculator:before {
+    content: "\f10d";
+}
+.icon-calendar__empty--small:before {
+    content: "\f10e";
+}
+.icon-calendar--small:before {
+    content: "\f10f";
+}
+.icon-calendar:before {
+    content: "\f110";
+}
+.icon-calendar__week--small:before {
+    content: "\f111";
+}
+.icon-charts:before {
+    content: "\f112";
+}
+.icon-chat-bubbles:before {
+    content: "\f113";
+}
+.icon-chat--small:before {
+    content: "\f114";
+}
+.icon-chat:before {
+    content: "\f115";
+}
+.icon-checkbox__outline--small:before {
+    content: "\f116";
+}
+.icon-checkbox--small:before {
+    content: "\f117";
+}
+.icon-checklist:before {
+    content: "\f118";
+}
+.icon-check--small:before {
+    content: "\f119";
+}
+.icon-compass--small:before {
+    content: "\f11a";
+}
+.icon-contacts:before {
+    content: "\f11b";
+}
+.icon-cross__mini--small:before {
+    content: "\f11c";
+}
+.icon-cross--small:before {
+    content: "\f11d";
+}
+.icon-cross__strong--small:before {
+    content: "\f11e";
+}
+.icon-crown--small:before {
+    content: "\f11f";
+}
+.icon-dislike--small:before {
+    content: "\f120";
+}
+.icon-dislike:before {
+    content: "\f121";
+}
+.icon-download--small:before {
+    content: "\f122";
+}
+.icon-dropbox--small:before {
+    content: "\f123";
+}
+.icon-earth--small:before {
+    content: "\f124";
+}
+.icon-earth:before {
+    content: "\f125";
+}
+.icon-equalizer:before {
+    content: "\f126";
+}
+.icon-files-empty--small:before {
+    content: "\f127";
+}
+.icon-files:before {
+    content: "\f128";
+}
+.icon-file__text:before {
+    content: "\f129";
+}
+.icon-flow--small:before {
+    content: "\f12a";
+}
+.icon-form--small:before {
+    content: "\f12b";
+}
+.icon-form:before {
+    content: "\f12c";
+}
+.icon-gallery:before {
+    content: "\f12d";
+}
+.icon-gamepad:before {
+    content: "\f12e";
+}
+.icon-gear:before {
+    content: "\f12f";
+}
+.icon-google-drive--small:before {
+    content: "\f130";
+}
+.icon-google-play--small:before {
+    content: "\f131";
+}
+.icon-graduation--small:before {
+    content: "\f132";
+}
+.icon-graduation:before {
+    content: "\f133";
+}
+.icon-grid--small:before {
+    content: "\f134";
+}
+.icon-grow--small:before {
+    content: "\f135";
+}
+.icon-head:before {
+    content: "\f136";
+}
+.icon-heart-pulse:before {
+    content: "\f137";
+}
+.icon-heart--small:before {
+    content: "\f138";
+}
+.icon-heart:before {
+    content: "\f139";
+}
+.icon-home--small:before {
+    content: "\f13a";
+}
+.icon-home:before {
+    content: "\f13b";
+}
+.icon-hourglass__start--small:before {
+    content: "\f13c";
+}
+.icon-image--small:before {
+    content: "\f13d";
+}
+.icon-info--small:before {
+    content: "\f13e";
+}
+.icon-like--small:before {
+    content: "\f13f";
+}
+.icon-like:before {
+    content: "\f140";
+}
+.icon-link--small:before {
+    content: "\f141";
+}
+.icon-list--small:before {
+    content: "\f142";
+}
+.icon-megaphone--small:before {
+    content: "\f143";
+}
+.icon-megaphone:before {
+    content: "\f144";
+}
+.icon-menu:before {
+    content: "\f145";
+}
+.icon-more-hori2--small:before {
+    content: "\f146";
+}
+.icon-more-hori--small:before {
+    content: "\f147";
+}
+.icon-more_vert:before {
+    content: "\f148";
+}
+.icon-move--small:before {
+    content: "\f149";
+}
+.icon-networking:before {
+    content: "\f14a";
+}
+.icon-neutral--small:before {
+    content: "\f14b";
+}
+.icon-neutral:before {
+    content: "\f14c";
+}
+.icon-new__filled--small:before {
+    content: "\f14d";
+}
+.icon-notebook:before {
+    content: "\f14e";
+}
+.icon-office:before {
+    content: "\f14f";
+}
+.icon-paper-plane--small:before {
+    content: "\f150";
+}
+.icon-paper-plane:before {
+    content: "\f151";
+}
+.icon-pencil--small:before {
+    content: "\f152";
+}
+.icon-people-carry--small:before {
+    content: "\f153";
+}
+.icon-phone--small:before {
+    content: "\f154";
+}
+.icon-photo:before {
+    content: "\f155";
+}
+.icon-pin--small:before {
+    content: "\f156";
+}
+.icon-popout--small:before {
+    content: "\f157";
+}
+.icon-prize:before {
+    content: "\f158";
+}
+.icon-question--small:before {
+    content: "\f159";
+}
+.icon-refund:before {
+    content: "\f15a";
+}
+.icon-sad--small:before {
+    content: "\f15b";
+}
+.icon-sad:before {
+    content: "\f15c";
+}
+.icon-satellite-dish--small:before {
+    content: "\f15d";
+}
+.icon-satellite-dish:before {
+    content: "\f15e";
+}
+.icon-school--small:before {
+    content: "\f15f";
+}
+.icon-search--small:before {
+    content: "\f160";
+}
+.icon-share--small:before {
+    content: "\f161";
+}
+.icon-shrink--small:before {
+    content: "\f162";
+}
+.icon-siren-alert:before {
+    content: "\f163";
+}
+.icon-siren:before {
+    content: "\f164";
+}
+.icon-slideshow--small:before {
+    content: "\f165";
+}
+.icon-smiley--small:before {
+    content: "\f166";
+}
+.icon-smiley:before {
+    content: "\f167";
+}
+.icon-star__filled--small:before {
+    content: "\f168";
+}
+.icon-star--small:before {
+    content: "\f169";
+}
+.icon-star:before {
+    content: "\f16a";
+}
+.icon-tie--small:before {
+    content: "\f16b";
+}
+.icon-tie:before {
+    content: "\f16c";
+}
+.icon-unlock:before {
+    content: "\f16d";
+}
+.icon-users--small:before {
+    content: "\f16e";
+}
+.icon-warning--small:before {
+    content: "\f16f";
+}
+.icon-whatsapp-small:before {
+    content: "\f170";
+}
+.icon-zip-and-download--small:before {
+    content: "\f171";
+}
+
+
+    </style>
+</head>
+<body>
+
+    <h1>icons</h1>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-agenda"></i>
+            </span>
+            <br>
+            <span class='label'>agenda</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-alarm__cancel--small"></i>
+            </span>
+            <br>
+            <span class='label'>alarm__cancel--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-apple--small"></i>
+            </span>
+            <br>
+            <span class='label'>apple--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-arrow-down__long--small"></i>
+            </span>
+            <br>
+            <span class='label'>arrow-down__long--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-arrow-left4--small"></i>
+            </span>
+            <br>
+            <span class='label'>arrow-left4--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-arrow-left__filled--small"></i>
+            </span>
+            <br>
+            <span class='label'>arrow-left__filled--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-arrow-left--small"></i>
+            </span>
+            <br>
+            <span class='label'>arrow-left--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-arrow-right--small"></i>
+            </span>
+            <br>
+            <span class='label'>arrow-right--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-bell-ringing"></i>
+            </span>
+            <br>
+            <span class='label'>bell-ringing</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-block-settings"></i>
+            </span>
+            <br>
+            <span class='label'>block-settings</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-book--small"></i>
+            </span>
+            <br>
+            <span class='label'>book--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-business-card"></i>
+            </span>
+            <br>
+            <span class='label'>business-card</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-calculator"></i>
+            </span>
+            <br>
+            <span class='label'>calculator</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-calendar__empty--small"></i>
+            </span>
+            <br>
+            <span class='label'>calendar__empty--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-calendar--small"></i>
+            </span>
+            <br>
+            <span class='label'>calendar--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-calendar"></i>
+            </span>
+            <br>
+            <span class='label'>calendar</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-calendar__week--small"></i>
+            </span>
+            <br>
+            <span class='label'>calendar__week--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-charts"></i>
+            </span>
+            <br>
+            <span class='label'>charts</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-chat-bubbles"></i>
+            </span>
+            <br>
+            <span class='label'>chat-bubbles</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-chat--small"></i>
+            </span>
+            <br>
+            <span class='label'>chat--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-chat"></i>
+            </span>
+            <br>
+            <span class='label'>chat</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-checkbox__outline--small"></i>
+            </span>
+            <br>
+            <span class='label'>checkbox__outline--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-checkbox--small"></i>
+            </span>
+            <br>
+            <span class='label'>checkbox--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-checklist"></i>
+            </span>
+            <br>
+            <span class='label'>checklist</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-check--small"></i>
+            </span>
+            <br>
+            <span class='label'>check--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-compass--small"></i>
+            </span>
+            <br>
+            <span class='label'>compass--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-contacts"></i>
+            </span>
+            <br>
+            <span class='label'>contacts</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-cross__mini--small"></i>
+            </span>
+            <br>
+            <span class='label'>cross__mini--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-cross--small"></i>
+            </span>
+            <br>
+            <span class='label'>cross--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-cross__strong--small"></i>
+            </span>
+            <br>
+            <span class='label'>cross__strong--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-crown--small"></i>
+            </span>
+            <br>
+            <span class='label'>crown--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-dislike--small"></i>
+            </span>
+            <br>
+            <span class='label'>dislike--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-dislike"></i>
+            </span>
+            <br>
+            <span class='label'>dislike</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-download--small"></i>
+            </span>
+            <br>
+            <span class='label'>download--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-dropbox--small"></i>
+            </span>
+            <br>
+            <span class='label'>dropbox--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-earth--small"></i>
+            </span>
+            <br>
+            <span class='label'>earth--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-earth"></i>
+            </span>
+            <br>
+            <span class='label'>earth</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-equalizer"></i>
+            </span>
+            <br>
+            <span class='label'>equalizer</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-files-empty--small"></i>
+            </span>
+            <br>
+            <span class='label'>files-empty--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-files"></i>
+            </span>
+            <br>
+            <span class='label'>files</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-file__text"></i>
+            </span>
+            <br>
+            <span class='label'>file__text</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-flow--small"></i>
+            </span>
+            <br>
+            <span class='label'>flow--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-form--small"></i>
+            </span>
+            <br>
+            <span class='label'>form--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-form"></i>
+            </span>
+            <br>
+            <span class='label'>form</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-gallery"></i>
+            </span>
+            <br>
+            <span class='label'>gallery</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-gamepad"></i>
+            </span>
+            <br>
+            <span class='label'>gamepad</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-gear"></i>
+            </span>
+            <br>
+            <span class='label'>gear</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-google-drive--small"></i>
+            </span>
+            <br>
+            <span class='label'>google-drive--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-google-play--small"></i>
+            </span>
+            <br>
+            <span class='label'>google-play--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-graduation--small"></i>
+            </span>
+            <br>
+            <span class='label'>graduation--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-graduation"></i>
+            </span>
+            <br>
+            <span class='label'>graduation</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-grid--small"></i>
+            </span>
+            <br>
+            <span class='label'>grid--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-grow--small"></i>
+            </span>
+            <br>
+            <span class='label'>grow--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-head"></i>
+            </span>
+            <br>
+            <span class='label'>head</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-heart-pulse"></i>
+            </span>
+            <br>
+            <span class='label'>heart-pulse</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-heart--small"></i>
+            </span>
+            <br>
+            <span class='label'>heart--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-heart"></i>
+            </span>
+            <br>
+            <span class='label'>heart</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-home--small"></i>
+            </span>
+            <br>
+            <span class='label'>home--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-home"></i>
+            </span>
+            <br>
+            <span class='label'>home</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-hourglass__start--small"></i>
+            </span>
+            <br>
+            <span class='label'>hourglass__start--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-image--small"></i>
+            </span>
+            <br>
+            <span class='label'>image--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-info--small"></i>
+            </span>
+            <br>
+            <span class='label'>info--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-like--small"></i>
+            </span>
+            <br>
+            <span class='label'>like--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-like"></i>
+            </span>
+            <br>
+            <span class='label'>like</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-link--small"></i>
+            </span>
+            <br>
+            <span class='label'>link--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-list--small"></i>
+            </span>
+            <br>
+            <span class='label'>list--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-megaphone--small"></i>
+            </span>
+            <br>
+            <span class='label'>megaphone--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-megaphone"></i>
+            </span>
+            <br>
+            <span class='label'>megaphone</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-menu"></i>
+            </span>
+            <br>
+            <span class='label'>menu</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-more-hori2--small"></i>
+            </span>
+            <br>
+            <span class='label'>more-hori2--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-more-hori--small"></i>
+            </span>
+            <br>
+            <span class='label'>more-hori--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-more_vert"></i>
+            </span>
+            <br>
+            <span class='label'>more_vert</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-move--small"></i>
+            </span>
+            <br>
+            <span class='label'>move--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-networking"></i>
+            </span>
+            <br>
+            <span class='label'>networking</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-neutral--small"></i>
+            </span>
+            <br>
+            <span class='label'>neutral--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-neutral"></i>
+            </span>
+            <br>
+            <span class='label'>neutral</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-new__filled--small"></i>
+            </span>
+            <br>
+            <span class='label'>new__filled--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-notebook"></i>
+            </span>
+            <br>
+            <span class='label'>notebook</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-office"></i>
+            </span>
+            <br>
+            <span class='label'>office</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-paper-plane--small"></i>
+            </span>
+            <br>
+            <span class='label'>paper-plane--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-paper-plane"></i>
+            </span>
+            <br>
+            <span class='label'>paper-plane</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-pencil--small"></i>
+            </span>
+            <br>
+            <span class='label'>pencil--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-people-carry--small"></i>
+            </span>
+            <br>
+            <span class='label'>people-carry--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-phone--small"></i>
+            </span>
+            <br>
+            <span class='label'>phone--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-photo"></i>
+            </span>
+            <br>
+            <span class='label'>photo</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-pin--small"></i>
+            </span>
+            <br>
+            <span class='label'>pin--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-popout--small"></i>
+            </span>
+            <br>
+            <span class='label'>popout--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-prize"></i>
+            </span>
+            <br>
+            <span class='label'>prize</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-question--small"></i>
+            </span>
+            <br>
+            <span class='label'>question--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-refund"></i>
+            </span>
+            <br>
+            <span class='label'>refund</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-sad--small"></i>
+            </span>
+            <br>
+            <span class='label'>sad--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-sad"></i>
+            </span>
+            <br>
+            <span class='label'>sad</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-satellite-dish--small"></i>
+            </span>
+            <br>
+            <span class='label'>satellite-dish--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-satellite-dish"></i>
+            </span>
+            <br>
+            <span class='label'>satellite-dish</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-school--small"></i>
+            </span>
+            <br>
+            <span class='label'>school--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-search--small"></i>
+            </span>
+            <br>
+            <span class='label'>search--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-share--small"></i>
+            </span>
+            <br>
+            <span class='label'>share--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-shrink--small"></i>
+            </span>
+            <br>
+            <span class='label'>shrink--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-siren-alert"></i>
+            </span>
+            <br>
+            <span class='label'>siren-alert</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-siren"></i>
+            </span>
+            <br>
+            <span class='label'>siren</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-slideshow--small"></i>
+            </span>
+            <br>
+            <span class='label'>slideshow--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-smiley--small"></i>
+            </span>
+            <br>
+            <span class='label'>smiley--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-smiley"></i>
+            </span>
+            <br>
+            <span class='label'>smiley</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-star__filled--small"></i>
+            </span>
+            <br>
+            <span class='label'>star__filled--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-star--small"></i>
+            </span>
+            <br>
+            <span class='label'>star--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-star"></i>
+            </span>
+            <br>
+            <span class='label'>star</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-tie--small"></i>
+            </span>
+            <br>
+            <span class='label'>tie--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-tie"></i>
+            </span>
+            <br>
+            <span class='label'>tie</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-unlock"></i>
+            </span>
+            <br>
+            <span class='label'>unlock</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-users--small"></i>
+            </span>
+            <br>
+            <span class='label'>users--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-warning--small"></i>
+            </span>
+            <br>
+            <span class='label'>warning--small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-whatsapp-small"></i>
+            </span>
+            <br>
+            <span class='label'>whatsapp-small</span>
+        </div>
+
+
+        <div class="preview">
+            <span class="inner">
+                <i class="icon-zip-and-download--small"></i>
+            </span>
+            <br>
+            <span class='label'>zip-and-download--small</span>
+        </div>
+
+
+</body>
+</html>
