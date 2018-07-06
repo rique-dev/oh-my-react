@@ -1,0 +1,46 @@
+.full-content {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.wrapper-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.base-backgroung {
+  width: 100vw;
+  height: 80vh;
+  z-index: -1;
+  position: absolute;
+}
+
+.shape {
+  @extend .base-backgroung;
+
+  // top: -40vh;
+  mix-blend-mode: undefined;
+  transform: skewY(-12.7deg);
+  transform-origin: left;
+  background-image: linear-gradient(15deg, #2f5496, #53d2d8 60%, #12bdd1);
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 200px;
+    background-image: radial-gradient(
+      ellipse farthest-corner at 250px 250px,
+      rgba(255, 255, 255, 0.3) 0%,
+      rgba(255, 255, 255, 0.1) 30%,
+      transparent 100%
+    );
+  }
+}
