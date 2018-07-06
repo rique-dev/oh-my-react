@@ -1,0 +1,12 @@
+$success-color: #fff;
+$success-backgroud: #a4c639;
+$success-amount: 20;
+
+.scope {
+  color: $success-color !important;
+  background-color: $success-backgroud !important;
+
+  &:hover {
+    background-color: darken($success-backgroud, $success-amount);
+  }
+}
