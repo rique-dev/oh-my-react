@@ -1,3 +1,6 @@
 import { React, reactDelayRender } from '@lib'
+import s from './Loading.scss'
 
-export default reactDelayRender({ delay: 300 })(() => <div>Loading...</div>)
+export const Loading = reactDelayRender({ delay: 300 })(() => (
+  <div className={s.l}>Loading...</div>
+))
