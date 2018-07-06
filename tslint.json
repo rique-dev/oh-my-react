@@ -2,6 +2,7 @@
   "extends": ["tslint:all", "tslint-config-airbnb", "tslint-clean-code"],
   "linterOptions": {
     "exclude": [
+      "node_modules",
       "node_modules/**/*",
       "**/node_modules/**/*",
       "src/client/*index.tsx",
@@ -40,7 +41,9 @@
     "import-name": false,
     "no-magic-numbers": false,
     "no-any": false,
-    "no-default-export": false
+    "no-default-export": false,
+    "no-var-requires": false,
+    "no-require-imports": false
   },
   "autoFixOnSave": true
 }
