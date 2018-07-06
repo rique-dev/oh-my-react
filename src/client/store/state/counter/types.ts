@@ -12,6 +12,7 @@ export interface State {
   count: number
   list?: [any]
 }
+
 export interface Increment extends Action<INCREMENT, State> {}
 
 export interface Decrement extends Action<DECREMENT, State> {}
@@ -21,6 +22,7 @@ export type Actions = Increment | Decrement
 export interface Selectors {
   isPrime: number
 }
+
 export interface Dispatch {
   increment(payload: State): void
   decrement(payload: State): void
