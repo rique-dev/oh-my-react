@@ -3,6 +3,8 @@
     "stylelint-config-standard",
     "./node_modules/prettier-stylelint/config.js"
   ],
+  "syntax": "scss",
+  "ignoreFiles": "**/*.tsx",
   "rules": {
     "at-rule-no-unknown": [
       true,

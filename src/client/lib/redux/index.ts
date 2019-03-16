@@ -7,7 +7,9 @@ interface Meta {
   method: string
 }
 
-export const createAction = <Payload>(type: string) => (payload: Payload) => ({
+export const createAction = <Payload = void>(type: string) => (
+  payload: Payload,
+) => ({
   payload,
   type,
 })
@@ -16,7 +18,7 @@ export * from 'redux'
 /**
  * Override default Action of Redux
  */
-export interface Action<T, P = any> extends Redux.Action<T> {
-  payload?: P
+export interface Action<Type, Payload = void> extends Redux.Action<Type> {
+  payload: Payload
   meta?: Meta
 }

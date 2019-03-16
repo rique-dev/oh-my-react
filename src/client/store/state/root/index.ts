@@ -1,8 +1,7 @@
 import { connectState } from '@lib'
 import { RootState } from '..'
 import operations from './operations'
-import * as selectors from './selectors'
-import { Dispatch, Props, State } from './types'
+import { Dispatch, Selectors, State } from './types'
 
 /**
  * Conecta no component operations e state
@@ -10,18 +9,16 @@ import { Dispatch, Props, State } from './types'
 const connectRoot = () => {
   const mapStateToProps = (state: RootState) => ({
     ...state.root,
-    connectRoot: selectors.currentLocale(state.root),
   })
 
   const mapDispatchToProps = {
     ...operations,
   }
 
-  return connectState<State, Dispatch>(
-    mapStateToProps,
-    // mapDispatchToProps,
-  )
+  return connectState<State, Dispatch>(mapStateToProps, mapDispatchToProps)
 }
+
+type Props = State & Dispatch & Selectors
 
 export { default } from './reducers'
 export { connectRoot, State, Props }

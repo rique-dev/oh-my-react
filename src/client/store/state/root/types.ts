@@ -1,27 +1,41 @@
+import { Locales } from '@constants'
 import { Action } from '@lib'
 
 enum Type {
   CHANGE_LOCALE = 'root/CHANGE_LOCALE',
+  SIDEBAR_OPEN_MENU = 'root/SIDEBAR_OPEN_MENU',
 }
 
 type CHANGE_LOCALE = Type.CHANGE_LOCALE
+type SIDEBAR_OPEN_MENU = Type.SIDEBAR_OPEN_MENU
 
 interface State {
-  locale: string
+  locale: Locales
+  sidebar: {
+    isOpen: boolean
+  }
 }
 
-interface ChangeLocale extends Action<CHANGE_LOCALE, State> {}
+interface Dispatch {
+  changeLocale(payload: Locales): void
+  sidebarOpenMenu(payload?: void): void
+}
 
-type Actions = ChangeLocale
+interface ChangeLocale extends Action<CHANGE_LOCALE, Locales> {}
+interface SidebarOpenMenu extends Action<SIDEBAR_OPEN_MENU, void> {}
+
+type Actions = ChangeLocale & SidebarOpenMenu
 
 interface Selectors {
   currentLocale: string
 }
 
-interface Dispatch {
-  changeLocale(payload: State): void
+export {
+  Actions,
+  ChangeLocale,
+  Dispatch,
+  SidebarOpenMenu,
+  Selectors,
+  State,
+  Type,
 }
-
-type Props = State & Dispatch & Selectors
-
-export { Actions, ChangeLocale, Dispatch, Props, Selectors, State, Type }

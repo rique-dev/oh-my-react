@@ -132,11 +132,11 @@ Para contribuir para este repositório instale estes programas em seu computador
 - [Redux Developer Tools](https://github.com/zalmoxisus/redux-devtools-extension)
 
 > ### Contribuindo
->
-> Abra sua PR. Fique atento aos padrões de projeto que é usado neste, que são:
+
+Abra sua PR. Fique atento aos padrões de projeto que é usado neste, que são:
 
 - [CSS/SCSS](https://github.com/stylelint/stylelint)
-- Typescript/Javascript: O [TSlint](https://github.com/palantir/tslint) irá lhe guiar com o [style1](https://github.com/piotrwitek/react-redux-typescript-guide), [style2](https://github.com/basarat/typescript-book/blob/master/docs/styleguide/styleguide.md) e com pequenasalterações
+- Typescript/Javascript: O [TSlint](https://github.com/palantir/tslint) irá lhe guiar com o [style1](https://github.com/piotrwitek/react-redux-typescript-guide), [style2](https://github.com/basarat/typescript-book/blob/master/docs/styleguide/styleguide.md) e com pequenas alterações
 - Git e Outros: [Bee Stylish](https://github.com/BeeTech-global/bee-stylish)
 
 Está configurado no hook do git commit o [prettier](https://github.com/prettier/prettier) que fará automatimente a formatação do código.

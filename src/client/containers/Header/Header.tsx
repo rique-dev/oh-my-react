@@ -1,25 +1,22 @@
 import {
   Avatar,
-  IconButton,
+  HamburgerMenu,
   IconButtonList,
   IconButtonListProps,
   LogoIts4,
 } from '@components'
-import Home from '@Home'
 import { luiz } from '@images'
-import { bind, Link, React } from '@lib'
+import { React } from '@lib'
 import { Grid } from '@lib/material-ui'
+import { connectRoot, Props } from '@state/root'
 import s from './Header.scss'
 
 interface HeaderState {
   itemsToAccess: IconButtonListProps
 }
 
-export interface HeaderProps {
-  menuIsOpen?: boolean
-}
-
-export default class Header extends React.Component<HeaderProps, HeaderState> {
+@connectRoot()
+export default class Header extends React.Component<{}, HeaderState> {
   componentWillMount(): void {
     this.setState({
       itemsToAccess: {
@@ -33,7 +30,7 @@ export default class Header extends React.Component<HeaderProps, HeaderState> {
           {
             handleClick: this.handleClickIconMock,
             nameIcon: 'bell-ringing',
-            badgeContent: 4,
+            badgeContent: 40,
             color: '#fff',
           },
           {
@@ -45,7 +42,7 @@ export default class Header extends React.Component<HeaderProps, HeaderState> {
           {
             handleClick: this.handleClickIconMock,
             nameIcon: 'gamepad',
-            badgeContent: 93,
+            badgeContent: 100,
             color: '#fff',
           },
         ],
@@ -53,16 +50,13 @@ export default class Header extends React.Component<HeaderProps, HeaderState> {
     })
   }
 
-  @bind
-  clickButtonMenu(e: React.MouseEvent<HTMLElement>): void {
-    this.setState({}) // Envia para redux
-  }
-
   handleClickIconMock(): void {
     this.setState({})
   }
 
   render(): JSX.Element {
+    const { sidebarOpenMenu, sidebar } = this.props as Props
+
     return (
       <Grid
         container
@@ -74,18 +68,15 @@ export default class Header extends React.Component<HeaderProps, HeaderState> {
         <Grid item container wrap="nowrap" xs={2}>
           <Grid item>
             <div className={s.menu}>
-              <IconButton
-                handleClick={this.clickButtonMenu}
-                color="#fff"
-                nameIcon="menu"
+              <HamburgerMenu
+                isOpen={sidebar.isOpen}
+                handleClick={sidebarOpenMenu}
               />
             </div>
           </Grid>
           <Grid item>
             <div className={s.logo}>
-              <Link to={Home.path}>
-                <LogoIts4 color="white" />
-              </Link>
+              <LogoIts4 color="white" />
             </div>
           </Grid>
         </Grid>

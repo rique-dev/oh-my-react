@@ -1,38 +1,165 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<!--<![endif]-->
+<html class="no-js" lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+  <style>
+    html {
+      height: 100%;
+    }
+
+    #loader-wrapper {
+      position: fixed;
+      background-color: #fff;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1000;
+    }
+
+    #loader {
+      display: block;
+      position: relative;
+      left: 50%;
+      top: 50%;
+      width: 150px;
+      height: 150px;
+      margin: -75px 0 0 -75px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      border-top-color: #24436c;
+      -webkit-animation: spin 2s linear infinite;
+
+      /* Chrome, Opera 15+, Safari 5+ */
+      animation: spin 2s linear infinite;
+
+      /* Chrome, Firefox 16+, IE 10+, Opera */
+      z-index: 1001;
+    }
+
+    #loader::before {
+      content: "";
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      right: 5px;
+      bottom: 5px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      border-top-color: #566e8e;
+      -webkit-animation: spin 3s linear infinite;
+
+      /* Chrome, Opera 15+, Safari 5+ */
+      animation: spin 3s linear infinite;
+
+      /* Chrome, Firefox 16+, IE 10+, Opera */
+    }
+
+    #loader::after {
+      content: "";
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      right: 15px;
+      bottom: 15px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      border-top-color: #899ab0;
+      -webkit-animation: spin 1.5s linear infinite;
+
+      /* Chrome, Opera 15+, Safari 5+ */
+      animation: spin 1.5s linear infinite;
+
+      /* Chrome, Firefox 16+, IE 10+, Opera */
+    }
+
+    @-webkit-keyframes spin {
+      0% {
+        -webkit-transform: rotate(0deg);
+
+        /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(0deg);
+
+        /* IE 9 */
+        transform: rotate(0deg);
+
+        /* Firefox 16+, IE 10+, Opera */
+      }
+
+      100% {
+        -webkit-transform: rotate(360deg);
+
+        /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(360deg);
+
+        /* IE 9 */
+        transform: rotate(360deg);
+
+        /* Firefox 16+, IE 10+, Opera */
+      }
+    }
+
+    @keyframes spin {
+      0% {
+        -webkit-transform: rotate(0deg);
+
+        /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(0deg);
+
+        /* IE 9 */
+        transform: rotate(0deg);
+
+        /* Firefox 16+, IE 10+, Opera */
+      }
+
+      100% {
+        -webkit-transform: rotate(360deg);
+
+        /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(360deg);
+
+        /* IE 9 */
+        transform: rotate(360deg);
+
+        /* Firefox 16+, IE 10+, Opera */
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <!--[if lt IE 7]>
+  <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+  <![endif]-->
   <div id="root"></div>
-  <div id="page-loader">
-    Loading...
+  <div id="loader-wrapper">
+    <div id="loader"></div>
   </div>
   <script>
-    var pageLoader = document.querySelector("#page-loader");
+    var pageLoader = document.querySelector("#loader-wrapper");
     document.addEventListener("DOMContentLoaded", function (event) {
       fadeOut(pageLoader);
     });
-    window.onload = function () {
-      // scripts
-    };
 
     function fadeOut(el) {
       el.style.opacity = 1;
       (function fade() {
-        if ((el.style.opacity -= .1) < 0) {
+        if ((el.style.opacity -= .05) < 0) {
           el.style.display = "none";
         } else {
           requestAnimationFrame(fade);
         }
       })();
     }
-
   </script>
 </body>
 

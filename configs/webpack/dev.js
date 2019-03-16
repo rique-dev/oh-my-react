@@ -6,6 +6,7 @@ const merge = require('webpack-merge')
 const webpack = require('webpack')
 const common = require('./common')
 const HtmlWebpackPlugin = require("html-webpack-plugin")
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 const paths = require('./../paths')
 
 const HTTPS = process.env.HTTPS === 'true'
@@ -29,6 +30,7 @@ module.exports = merge(common.config, {
     }),
     new webpack.HotModuleReplacementPlugin(), // enable HMR globally
     new webpack.NamedModulesPlugin(), // prints more readable module names in the browser console on HMR updates
+    new HardSourceWebpackPlugin(),
   ],
   devServer: {
     host: HOST,

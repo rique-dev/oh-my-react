@@ -3,6 +3,7 @@ process.env.NODE_ENV = 'production'
 require('../env')
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const webpack = require('webpack')
 const merge = require('webpack-merge')
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer")
 
@@ -14,8 +15,9 @@ module.exports = merge(common.config, {
     paths.appIndexTsx
   ],
   mode: 'production',
-  devtool: 'source-map',
+  devtool: 'eval',
   plugins: [
+    new webpack.optimize.ModuleConcatenationPlugin(),
     new HtmlWebpackPlugin({
       template: paths.appHtml,
       minify: {

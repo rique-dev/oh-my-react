@@ -4,7 +4,7 @@ import { bind, injectIntl, React } from '@lib'
 import { Grid, Paper } from '@lib/material-ui'
 import { FormattedMessage, InjectedIntl } from 'react-intl'
 import s from './SignUp.scss'
-import messages from './SignUpMessage'
+import messages from './SignUpMessages'
 
 interface State {
   user: string

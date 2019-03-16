@@ -10,6 +10,22 @@
     ]
   },
   "rules": {
+    "no-unnecessary-type-assertion": false,
+    "trailing-comma": [
+      true,
+      {
+        "multiline": {
+          "arrays": "always",
+          "exports": "always",
+          "functions": "always",
+          "imports": "always",
+          "objects": "always",
+          "typeLiterals": "never"
+        },
+        "singleline": "never"
+      }
+    ],
+    "type-literal-delimiter": false,
     "typedef": [
       true,
       "call-signature",

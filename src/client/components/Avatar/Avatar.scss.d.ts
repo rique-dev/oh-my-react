@@ -1,1 +1,1 @@
-export const scope: string
+export const border: string;

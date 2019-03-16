@@ -1,1 +1,5 @@
 types/
+*scss.d.ts
+**/*scss.d.ts
+reset.scss
+icons.css

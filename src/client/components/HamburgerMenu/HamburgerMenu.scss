@@ -1,0 +1,44 @@
+.scope {
+  width: 18px;
+  height: 24px;
+  position: relative;
+}
+
+.line {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: #fff;
+  transition-timing-function: ease;
+  transition-duration: 0.4s;
+  border-radius: 0;
+  transform-origin: center center 0;
+  position: absolute;
+
+  &__first {
+    transform: translate3d(0, 4px, 0) rotate(0deg);
+
+    &--opened {
+      transform: translate3d(0, 10px, 0) rotate(45deg);
+    }
+  }
+
+  &__second {
+    transition-timing-function: ease-out;
+    transition-duration: 0.1s;
+    opacity: 1;
+    top: 9px;
+
+    &--opened {
+      opacity: 0;
+    }
+  }
+
+  &__third {
+    transform: translate3d(0, 14px, 0) rotate(0deg);
+
+    &--opened {
+      transform: translate3d(0, 10px, 0) rotate(-45deg);
+    }
+  }
+}

@@ -1,4 +1,7 @@
+import { Locales } from '@constants'
 import { createAction } from '@lib'
-import { State as Payload, Type } from './types'
+import { Type } from './types'
 
-export const changeLocale = createAction<Payload>(Type.CHANGE_LOCALE)
+export const changeLocale = createAction<Locales>(Type.CHANGE_LOCALE)
+
+export const sidebarOpenMenu = createAction(Type.SIDEBAR_OPEN_MENU)

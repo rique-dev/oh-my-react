@@ -1,17 +1,13 @@
 @import 'styles/variables';
 
-.some-class {
-  background-color: red;
-
-  &:hover {
-    color: red;
-  }
-
-  &--action {
-    background: rgb(219, 151, 151);
+.grid {
+  &__root {
+    width: 100% !important;
   }
 }
 
-.test {
-  cursor: pointer;
+.paper-buttons {
+  margin: 12px;
+  width: 48px;
+  height: 48px;
 }

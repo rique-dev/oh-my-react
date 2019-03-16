@@ -9,7 +9,7 @@ const common = require('../configs/webpack/common')
 const merge = require('webpack-merge')
 
 const regexScript = /\.(js|jsx|mjs|ts|tsx)$/
-const regexStyle = /\.(css|less|styl|scss|sass|sss)$/
+const regexStyle = /\.(less|styl|scss|sass|sss)$/
 const regexImage = /\.(bmp|gif|jpg|jpeg|png|svg)$/
 const staticAssetName = isDev ? '[path][name].[ext]?[hash:8]' : '[hash:8].[ext]'
 
@@ -21,6 +21,8 @@ const minimizeCssOptions = {
 
 const alias = {
   '@': paths.appSrcClient,
+  '@state/*': `${paths.appSrcClient}/store/state/*`,
+  '@state': `${paths.appSrcClient}/store/state`,
   '@constants/*': `${paths.appSrcClient}/constants/*`,
   '@constants': `${paths.appSrcClient}/constants`,
   '@components/*': `${paths.appSrcClient}/components/*`,
@@ -62,8 +64,22 @@ const rulesScript = {
     babelrc: true,
   },
 }
+const ruleStyle = {
+  test: /\.css$/,
+  rules: [
+    {
+      loader: 'style-loader',
+    },
+    {
+      loader: 'css-loader',
+    },
+    {
+      loader: 'resolve-url-loader',
+    },
+  ],
+}
 
-const rulesStyle = {
+const rulesPreStyle = {
   test: regexStyle,
   rules: [
     {
@@ -153,7 +169,8 @@ const rulesRaw = {
 
 module.exports = baseConfig => {
   baseConfig.module.rules.push(rulesScript)
-  baseConfig.module.rules.push(rulesStyle)
+  baseConfig.module.rules.push(rulesPreStyle)
+  baseConfig.module.rules.push(ruleStyle)
   baseConfig.module.rules.push(rulesImage)
   baseConfig.module.rules.push(rulesJson)
   baseConfig.module.rules.push(rulesRaw)
@@ -174,4 +191,5 @@ module.exports = baseConfig => {
   )
   baseConfig.resolve.alias = alias
   return baseConfig
+  // return merge(baseConfig, common.config)
 }

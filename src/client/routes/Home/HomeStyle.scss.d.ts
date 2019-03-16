@@ -1,3 +1,3 @@
-export const someClass: string;
-export const someClassAction: string;
-export const test: string;
+export const grid__root: string;
+export const gridRoot: string;
+export const paperButtons: string;

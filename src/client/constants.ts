@@ -1,10 +1,16 @@
-// ex: Constant 1
 export enum LOCALES {
   PT = 'pt',
   EN = 'en',
 }
 
-export const DEFAULT_LOCALE: string = LOCALES.PT
+export type Locales = 'pt' | 'en'
+
+export const DEFAULT_LOCALE: Locales = LOCALES.EN
+
+export enum KeyMap {
+  ENTER = 13,
+}
+
 // ex: Constant 2
 // use: const ad: Role = RolesTypes.ADMIN
 interface Roles {

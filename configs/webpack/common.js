@@ -1,6 +1,6 @@
 const StyleLintPlugin = require('stylelint-webpack-plugin')
 const webpack = require('webpack')
-const { CheckerPlugin } = require('awesome-typescript-loader')
+const { createLodashTransformer } = require('typescript-plugin-lodash')
 
 const paths = require('./../paths')
 
@@ -51,12 +51,20 @@ const rulesScript = {
   rules: [
     {
       test: /\.(ts|tsx)$/,
-      loader: 'awesome-typescript-loader',
+      loader: 'ts-loader',
       exclude: /node_modules/,
+      options: {
+        // transpileOnly: true,
+        // experimentalWatchApi: true,
+        getCustomTransformers: () => ({ before: [createLodashTransformer()] }),
+      },
     },
     {
       test: /\.(js)$/,
       loader: 'source-map-loader',
+    },
+    {
+      loader: 'cache-loader',
     },
   ],
   exclude: /node_modules/,
@@ -212,6 +220,7 @@ const rules = [
 
 const config = {
   output: {
+    pathinfo: false,
     path: paths.appBuildClient,
     publicPath: '/',
     filename: isDev ? '[name].js' : '[name].[hash].js',
@@ -239,7 +248,6 @@ const config = {
     rules: rules,
   },
   plugins: [
-    new CheckerPlugin(),
     new StyleLintPlugin(),
     new webpack.IgnorePlugin(
       /^\.\/locale$/,

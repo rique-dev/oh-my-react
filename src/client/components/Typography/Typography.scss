@@ -1,0 +1,13 @@
+.scope {
+  display: block;
+  display: -webkit-box;
+  height: 12px * 1.625 * 3;
+  margin: 0 auto;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.625;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

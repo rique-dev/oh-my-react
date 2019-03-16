@@ -1,2 +1,2 @@
-export const marginSafeLogo: string
-export const svgWhite: string
+export const marginSafeLogo: string;
+export const svgWhite: string;

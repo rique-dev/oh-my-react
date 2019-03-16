@@ -1,10 +1,10 @@
+import { Bootstrap } from '@containers/Bootstrap'
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'
 import SignUp from './SignUp'
 
-storiesOf('CONTEINERS|Session', module).add('SignUp', () => (
-  <div>
-    <br />
+storiesOf('containers|Session', module).add('SignUp', () => (
+  <Bootstrap isStorybook>
     <SignUp />
-  </div>
+  </Bootstrap>
 ))

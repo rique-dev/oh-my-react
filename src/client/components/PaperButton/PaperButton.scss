@@ -1,0 +1,43 @@
+.scope {
+  position: absolute;
+  width: 72px;
+  top: 72px;
+  left: 0;
+  bottom: 0;
+  transition-timing-function: ease;
+  transition-duration: 0.5s;
+
+  &--opened {
+    z-index: 1301;
+    background-color: #ebebeb;
+  }
+}
+
+.text {
+  width: 100%;
+  position: absolute;
+  transform: translate(-50%, -50%) rotate(90deg);
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  opacity: 0;
+  transition-timing-function: ease;
+  transition-duration: 0.2s;
+  z-index: -1;
+
+  &--opened {
+    opacity: 1;
+  }
+}
+
+.paper {
+  width: 48px;
+  height: 48px;
+
+  &--icon {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
